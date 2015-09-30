@@ -1,0 +1,26 @@
+{
+  "name": "framework",
+  "version": "0.0.0",
+  "homepage": "https://github.com/imethod/framework",
+  "authors": [
+    "bqxu <bcaring@163.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "angular": "~1.4.7",
+    "jquery": "1.11.3",
+    "less": "~2.5.3",
+    "jquery-ui": "jqueryui#1.11.4"
+  }
+}
