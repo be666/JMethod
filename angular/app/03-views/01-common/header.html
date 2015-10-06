@@ -3,7 +3,7 @@
 
     <div class="nav">
         <ui>
-            <li ng-repeat="nav in navList">
+            <li ng-repeat="nav in navList" ng-class="{active:$state.includes(nav.state)}">
                 <a href="{{nav.url}}">
                     {{nav.name}}
                 </a>

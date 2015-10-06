@@ -13,31 +13,40 @@
       queryNavList: function () {
         return [{
           name: "首页",
-          url: "#"
+          url: "#",
+          state:"index"
         }, {
           name: "资源中心",
-          url: "#/resource"
+          url: "#/resource",
+          state:"resource"
         }, {
           name: "考试系统",
-          url: "#/exam"
+          url: "#/exam",
+          state:"exam"
         }, {
           name: "论坛",
-          url: "#/forum"
+          url: "#/forum",
+          state:"forum"
         }, {
           name: "图表",
-          url: "#/charts"
+          url: "#/charts",
+          state:"charts"
         }, {
           name: "报表",
-          url: "#/xls"
+          url: "#/xls",
+          state:"xls"
         }, {
           name: "帮助中心",
-          url: "#/helper"
+          url: "#/helper",
+          state:"helper"
         }, {
           name: "作品展示",
-          url: "#/demo"
+          url: "#/demo",
+          state:"demo"
         }, {
           name: "后台管理",
-          url: "#/console"
+          url: "#/console",
+          state:"console"
         }];
       },
       queryLogo:function(){

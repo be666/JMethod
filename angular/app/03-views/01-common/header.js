@@ -12,7 +12,8 @@
     return {
       restrict: 'AE',
       replace: true,
-      controller: ["$scope", "$element", function ($scope, $element) {
+      controller: ["$scope", "$element", "$state", "$stateParams", function ($scope, $element, $state, $stateParams) {
+        $scope.$state = $state;
         $scope.navList = hSvc.queryNavList();
         $scope.logo = hSvc.queryLogo();
       }],
