@@ -15,7 +15,8 @@
     "grunt-contrib-nodeunit": "*",
     "grunt-contrib-requirejs": "*",
     "grunt-contrib-uglify": "*",
-    "grunt-contrib-watch": "*"
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-less": "*"
   },
   "devDependencies": {}
 }

@@ -443,9 +443,7 @@ var helperRouter = function (state, url, templateUrl, controller) {
     return {
       restrict: 'AE',
       replace: true,
-      controller: ["$scope", "$element","$state","$stateParams", function ($scope, $element,$state,$stateParams) {
-        console.log($state.includes("index"));
-        console.log($stateParams);
+      controller: ["$scope", "$element", "$state", "$stateParams", function ($scope, $element, $state, $stateParams) {
         $scope.$state = $state;
         $scope.navList = hSvc.queryNavList();
         $scope.logo = hSvc.queryLogo();

@@ -56,6 +56,13 @@ module.exports = function (grunt) {
         dest: "angular/app/plugins.css"
       }
     },
+    less: {
+      dist:{
+        files: {
+          'angular/app/less.css': 'angular/app/05-style/main.less'
+        }
+      }
+    },
     uglify: {
       options: {
         banner: '/*! power by iMethod */\n',
@@ -69,7 +76,7 @@ module.exports = function (grunt) {
     },
     clean: {
       js: ["angular/app/dist.js","angular/app/plugins.js", "angular/app/dist.min.js"],
-      css: ["angular/app/dist.css","angular/app/plugins.css"],
+      css: ["angular/app/dist.css","angular/app/plugins.css","angular/app/less.css"],
       cordova:["cordova/www/index.html","cordova/www/*.js","cordova/www/*.css","cordova/www/app"]
     },
     copy:{
@@ -90,7 +97,8 @@ module.exports = function (grunt) {
       },
       main_css:{
         files: [
-          {expand: true, cwd: "angular/app", src: ['dist.css'], dest: "cordova/www/"}
+          {expand: true, cwd: "angular/app", src: ['dist.css'], dest: "cordova/www/"},
+          {expand: true, cwd: "angular/app", src: ['less.css'], dest: "cordova/www/"}
         ]
       },
       plugin_css:{
@@ -129,6 +137,8 @@ module.exports = function (grunt) {
   //监控文件
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['clean', 'concat', 'uglify','copy']);
+  grunt.loadNpmTasks('grunt-contrib-less');
+
+  grunt.registerTask('default', ['clean', 'concat', 'uglify','less','copy']);
 
 };
