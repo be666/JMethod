@@ -54,7 +54,7 @@ css3 rgba(110, 142, 185, .4)!important;前三个是颜色值 后一个是透明�
 .rgba(@rgba_a:.4,@rgb_b:40) {
   filter: alpha(opacity=@rgb_b);
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{rgb_b})";
-  opacity: @rgb_a;
+  opacity: @rgba_a;
 }
 
 .rgba4 {
@@ -253,13 +253,13 @@ Animation 动画
 @keyframes mykeyframes {
   0% {
     background: red;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
   }
   25% {
     background: yellow;
     left: 200px;
-    top: 0px;
+    top: 0;
   }
   50% {
     background: blue;
@@ -268,13 +268,13 @@ Animation 动画
   }
   75% {
     background: green;
-    left: 0px;
+    left: 0;
     top: 200px;
   }
   100% {
     background: red;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
   }
 }
 
@@ -282,13 +282,13 @@ Animation 动画
 {
   0% {
     background: red;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
   }
   25% {
     background: yellow;
     left: 200px;
-    top: 0px;
+    top: 0;
   }
   50% {
     background: blue;
@@ -297,13 +297,13 @@ Animation 动画
   }
   75% {
     background: green;
-    left: 0px;
+    left: 0;
     top: 200px;
   }
   100% {
     background: red;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
   }
 }
 
@@ -311,13 +311,13 @@ Animation 动画
 {
   0% {
     background: red;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
   }
   25% {
     background: yellow;
     left: 200px;
-    top: 0px;
+    top: 0;
   }
   50% {
     background: blue;
@@ -326,13 +326,13 @@ Animation 动画
   }
   75% {
     background: green;
-    left: 0px;
+    left: 0;
     top: 200px;
   }
   100% {
     background: red;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
   }
 }
 
@@ -340,13 +340,13 @@ Animation 动画
 {
   0% {
     background: red;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
   }
   25% {
     background: yellow;
     left: 200px;
-    top: 0px;
+    top: 0;
   }
   50% {
     background: blue;
@@ -355,12 +355,23 @@ Animation 动画
   }
   75% {
     background: green;
-    left: 0px;
+    left: 0;
     top: 200px;
   }
   100% {
     background: red;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
+  }
+}
+
+//
+.nav li a {
+  .pd-5-10;
+  .m0;
+  h2 {
+    .p0;
+    .m0;
+    font-size:inherit;
   }
 }

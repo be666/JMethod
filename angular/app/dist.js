@@ -420,8 +420,9 @@ var helperRouter = function (state, url, templateUrl, controller) {
 (function () {
   var dct = initDir("Footer", function () {
     return {
-      restrict: 'AE',
+      restrict: 'EMCA',
       replace: true,
+      transclude: true,
       controller: ["$scope", "$element", function ($scope, $element) {
       }],
       templateUrl: commonUrl + "/footer.html"
@@ -441,8 +442,9 @@ var helperRouter = function (state, url, templateUrl, controller) {
 (function () {
   var dct = initDir("Header", [svcName("common.header")], function (hSvc) {
     return {
-      restrict: 'AE',
+      restrict: 'EMCA',
       replace: true,
+      transclude: true,
       controller: ["$scope", "$element", "$state", "$stateParams", function ($scope, $element, $state, $stateParams) {
         $scope.$state = $state;
         $scope.navList = hSvc.queryNavList();
@@ -470,6 +472,20 @@ var helperRouter = function (state, url, templateUrl, controller) {
   routers.push(portalRouter("index", "", "/index.html", ctrl.name))
 })();
 
+/**
+ * auth : iMethod
+ * create_at: 15/10/8.
+ * desc:
+ * note:
+ *  1.
+ */
+(function () {
+  var ctrl = initCtrl("index.test", ["$scope", svcName("index")], function ($scope, index) {
+
+  });
+  controllers.push(ctrl);
+  routers.push(portalRouter("index.test", "/test", "/index.test.html", ctrl.name))
+})();
 /**
  * auth : iMethod
  * create_at: 15/10/6.
@@ -586,7 +602,7 @@ var helperRouter = function (state, url, templateUrl, controller) {
   var ctrl = initCtrl("map", ["$scope", svcName("map")], function ($scope, mSvc) {
   });
   controllers.push(ctrl);
-  routers.push(helperRouter("map", "/map", "/map/map.html", ctrl.name))
+  routers.push(helperRouter("map", "/map", "/helper.map.html", ctrl.name))
 })();
 /**
  * auth : iMethod

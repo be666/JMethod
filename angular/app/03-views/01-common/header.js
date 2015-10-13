@@ -10,8 +10,9 @@
 (function () {
   var dct = initDir("Header", [svcName("common.header")], function (hSvc) {
     return {
-      restrict: 'AE',
+      restrict: 'EMCA',
       replace: true,
+      transclude: true,
       controller: ["$scope", "$element", "$state", "$stateParams", function ($scope, $element, $state, $stateParams) {
         $scope.$state = $state;
         $scope.navList = hSvc.queryNavList();

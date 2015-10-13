@@ -9,5 +9,5 @@
   var ctrl = initCtrl("map", ["$scope", svcName("map")], function ($scope, mSvc) {
   });
   controllers.push(ctrl);
-  routers.push(helperRouter("map", "/map", "/map/map.html", ctrl.name))
+  routers.push(helperRouter("map", "/map", "/helper.map.html", ctrl.name))
 })();

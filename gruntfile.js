@@ -12,6 +12,19 @@ module.exports = function (grunt) {
   grunt.initConfig({
     // 配置任务
     pkg: grunt.file.readJSON('package.json'),
+    bower: {
+      install: {
+        options: {
+          targetDir: 'angular/app/lib',
+          layout: 'byComponent',
+          install: true,
+          verbose: false,
+          cleanTargetDir: false,
+          cleanBowerDir: false,
+          bowerOptions: {}
+        }
+      }
+    },
     concat: {
       options: {
         separator: '\n'
@@ -34,8 +47,8 @@ module.exports = function (grunt) {
       plugin_js: {
         src: [
           "angular/app/lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js",
-          "angular/app/lib/jquery/dist/js/jquery.js",
-          "angular/app/lib/bootstrap/dist/js/bootstrap.js",
+          "angular/app/lib/jquery/jquery.js",
+          "angular/app/bower_components/bootstrap/dist/js/bootstrap.js",
           "angular/app/lib/angular/angular.js",
           "angular/app/lib/angular-loader/angular-loader.js",
           "angular/app/lib/angular-mocks/angular-mocks.js",
@@ -50,16 +63,17 @@ module.exports = function (grunt) {
       },
       plugin_css: {
         src: [
-          "angular/app/bower_components/html5-boilerplate/dist/css/normalize.css",
-          "angular/app/bower_components/html5-boilerplate/dist/css/main.css"
+          "angular/app/bower_components/bootstrap/dist/css/bootstrap.css",
+          "angular/app/bower_components/bootstrap/dist/css/bootstrap-theme.css"
         ],
         dest: "angular/app/plugins.css"
       }
     },
     less: {
-      dist:{
+      dist: {
         files: {
-          'angular/app/less.css': 'angular/app/05-style/main.less'
+          'angular/app/less.css': 'angular/app/05-style/main.less',
+          'angular/app/merge.css': 'angular/app/05-style/merge.less'
         }
       }
     },
@@ -75,48 +89,53 @@ module.exports = function (grunt) {
       }
     },
     clean: {
-      js: ["angular/app/dist.js","angular/app/plugins.js", "angular/app/dist.min.js"],
-      css: ["angular/app/dist.css","angular/app/plugins.css","angular/app/less.css"],
-      cordova:["cordova/www/index.html","cordova/www/*.js","cordova/www/*.css","cordova/www/app"]
+      js: ["angular/app/dist.js", "angular/app/plugins.js", "angular/app/dist.min.js"],
+      css: ["angular/app/dist.css", "angular/app/plugins.css", "angular/app/less.css"],
+      cordova: ["cordova/www/index.html", "cordova/www/*.js", "cordova/www/*.css", "cordova/www/app"]
     },
-    copy:{
-      main:{
+    copy: {
+      main: {
         files: [
           {expand: true, cwd: "angular/app", src: ['index.html'], dest: "cordova/www/"}
         ]
       },
-      main_js:{
+      main_js: {
         files: [
           {expand: true, cwd: "angular/app", src: ['dist.min.js'], dest: "cordova/www/"}
         ]
       },
-      plugin_js:{
+      plugin_js: {
         files: [
           {expand: true, cwd: "angular/app", src: ['plugins.js'], dest: "cordova/www/"}
         ]
       },
-      main_css:{
+      main_css: {
         files: [
           {expand: true, cwd: "angular/app", src: ['dist.css'], dest: "cordova/www/"},
           {expand: true, cwd: "angular/app", src: ['less.css'], dest: "cordova/www/"}
         ]
       },
-      plugin_css:{
+      plugin_css: {
         files: [
           {expand: true, cwd: "angular/app", src: ['plugins.css'], dest: "cordova/www/"}
         ]
       },
-      html:{
+      html: {
         files: [
           {expand: true, cwd: "angular/app/03-views", src: ['**/*.html'], dest: "cordova/www/app/03-views"}
         ]
       }
     },
     watch: {
-      files: ['angular/app/03-views/**','angular/app/02-services/**'],
-      tasks: ['clean', 'concat', 'uglify','copy'],
-      options: {
-        reload: true
+      css: {
+        files: ['angular/app/05-style/**/*.less', 'angular/app/03-views/**/*.js', 'angular/app/02-services/**/*.js'],
+        tasks: ['clean', 'concat', 'uglify', 'less', 'copy'],
+        options: {
+          debounceDelay: 10000,
+          interval: 1000,
+          interrupt: true,
+          reload: true
+        }
       }
     }
   });
@@ -139,6 +158,6 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-less');
 
-  grunt.registerTask('default', ['clean', 'concat', 'uglify','less','copy']);
+  grunt.registerTask('default', ['bower', 'clean', 'concat', 'uglify', 'less', 'copy', 'watch']);
 
 };

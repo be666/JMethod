@@ -10,8 +10,9 @@
 (function () {
   var dct = initDir("Footer", function () {
     return {
-      restrict: 'AE',
+      restrict: 'EMCA',
       replace: true,
+      transclude: true,
       controller: ["$scope", "$element", function ($scope, $element) {
       }],
       templateUrl: commonUrl + "/footer.html"
