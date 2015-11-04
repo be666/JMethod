@@ -1,0 +1,26 @@
+<%
+var chapterList = chapterList || [];
+var chapterLength = chapterList.length;
+%>
+<ul class="gxb-hide">
+    <%
+    for(var i = 0;i < chapterLength;i++){
+        var chapter = chapterList[i];
+    %>
+    <li>
+        <h5>
+            <i class="gxb-icon-begin">
+            </i>
+            <%=chapter['contentType']%>
+            <a class="chapter-info" href="javascript:void(0)"
+                    <%= attr("unitId", chapter['unitId']) %>
+                    <%= attr("chapterId", chapter['chapterId']) %>
+                    <%= attr("contentId", chapter['contentId']) %>
+                    <%= attr("contentType", chapter['contentType']) %>
+                    >
+                <%= chapter['title'] %>
+            </a>
+        </h5>
+    </li>
+    <% } %>
+</ul>

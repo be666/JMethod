@@ -1,0 +1,22 @@
+{
+  "name": "gxb.website",
+  "version": "0.0.1",
+  "authors": [
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "",
+  "dependencies": {
+    "jquery": "1.11.3",
+    "bootstrap": "3.3.5"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "angular/app/bower_components",
+    "test",
+    "tests"
+  ]
+}

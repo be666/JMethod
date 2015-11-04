@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd"
+       default-lazy-init="true">
+
+    <description>Spring公共配置</description>
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+        <property name="properties" ref="configProperties"/>
+    </bean>
+
+    <!-- 启用spring mvc 注解 -->
+    <context:annotation-config/>
+
+    <!-- 使用annotation 自动注册bean,并检查@Required,@Autowired的属性已被注入 -->
+    <context:component-scan base-package="com.gxb.sites.web">
+        <context:include-filter type="regex" expression="\.service\."/>
+    </context:component-scan>
+
+    <!-- 国际化的消息资源文件（本系统中主要用于显示/错误消息定制） -->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <!-- 在web环境中一定要定位到classpath 否则默认到当前web应用下找 -->
+                <value>classpath:messages</value>
+            </list>
+        </property>
+        <property name="useCodeAsDefaultMessage" value="false"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="cacheSeconds" value="60"/>
+    </bean>
+
+
+    <bean id="applicationHelper" class="com.gxb.sites.web.sys.ApplicationHelper" lazy-init="true"/>
+
+    <!-- production环境 -->
+    <beans profile="production">
+
+        <bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+            <property name="locations">
+                <list>
+                    <value>classpath*:config.properties</value>
+                </list>
+            </property>
+        </bean>
+
+    </beans>
+
+
+    <!-- local development环境 -->
+    <beans profile="development">
+        <!-- spring的属性加载器，加载properties文件中的属性 -->
+        <bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+            <property name="locations">
+                <list>
+                    <value>classpath*:config.properties</value>
+                    <value>classpath*:config.development.properties</value>
+                </list>
+            </property>
+        </bean>
+    </beans>
+
+
+</beans>

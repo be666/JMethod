@@ -1,0 +1,65 @@
+<div class="pager">
+    <% if (pageObj.pageList.length > 0) {
+        var i = 0;
+        var curPage = pageObj.curPage;
+        var totalPages = pageObj.totalPages;
+        var pages = [];
+        if (curPage > 3 && curPage < totalPages - 2) {
+            for (i = -2; i <= 2; i++) {
+                var _c = curPage + i;
+                if (_c >= 0 && _c <= totalPages) {
+                    pages.push(_c);
+                }
+            }
+        } else if (curPage >= totalPages - 4) {
+            for (i = -4; i <= 0; i++) {
+                var _c = totalPages + i;
+                if (_c >= 1 && _c <= totalPages) {
+                    pages.push(_c);
+                }
+            }
+        } else {
+            for (i = 1; i <= 5; i++) {
+                if (i >= 1 && i <= totalPages) {
+                    pages.push(i);
+                }
+            }
+        }
+    %>
+    <ul class="pagination">
+        <% if (curPage != 1) { %>
+        <li>
+            <a href="javascript:void(0)" data-page="<%= curPage - 1 %>">
+                上一页
+            </a>
+        </li>
+        <% } %>
+        <% for (var pg in pages){ %>
+        <% if (pages[pg] == curPage) { %>
+        <li class="active">
+            <a href="javascript:void(0)" data-page="<%= pages[pg] %>"><%= pages[pg] %>
+            </a>
+        </li>
+        <% } else { %>
+        <li>
+            <a href="javascript:void(0)" data-page="<%= pages[pg] %>"><%= pages[pg] %>
+            </a>
+        </li>
+        <% } %>
+        <% } %>
+        <% if (curPage != totalPages) { %>
+        <li>
+            <a href="javascript:void(0)" data-page="<%= curPage + 1 %>">
+                下一页
+            </a>
+        </li>
+        <% } %>
+        <li>
+            <a href="javascript:void(0)" style="color: #7a8a99">
+                共<%= totalPages %> 页
+            </a>
+
+        </li>
+    </ul>
+    <% } %>
+</div>
