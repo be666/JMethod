@@ -1,0 +1,45 @@
+//章节导航
+.unit-container {
+  margin-top: 10px;
+  .unit-list {
+    background: #fff;
+    margin-top: 10px;
+    h4 {
+      height: 60px;
+      padding: 20px;
+      line-height: 20px;
+      .gxb-icon-toggle {
+
+        float: right;
+      }
+    }
+    ul {
+      border: 0;
+      border-top: 1px solid #e1e7e8;
+      li {
+        border: 0;
+        border-bottom: 1px solid #e1e7e8;
+      }
+    }
+    h5 {
+      height: 50px;
+      padding: 18px 20px 18px 20px;
+      vertical-align: middle;
+      border-bottom:1px solid @color-g01;
+      .gxb-icon-begin, .gxb-icon-ing, .gxb-icon-end {
+        vertical-align: middle;
+      }
+      &.quiz-title{
+        &:hover{
+          background:@color-b05;
+          cursor:pointer;
+        }
+      }
+      .chapter-info {
+        vertical-align: middle;
+        display: inline-block;
+        margin-left: 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<%
+var chapterList = chapterList || [];
+var chapterLength = chapterList.length;
+%>
+<ul class="gxb-hide">
+    <%
+    for(var i = 0;i < chapterLength;i++){
+        var chapter = chapterList[i];
+        var assignment = chapter.assignment;
+        var submission = chapter.submission || {};
+    %>
+    <li>
+        <h5 class="quiz-title">
+            <div class="chapter-info" href="javascript:void(0)"
+                    <%= attr("unitId", chapter['unitId']) %>
+                    <%= attr("chapterId", chapter['chapterId']) %>
+                    <%= attr("contentId", chapter['contentId']) %>
+                    <%= attr("contentType", chapter['contentType']) %>
+                    >
+                <%= chapter['title'] %>
+            </div>
+        </h5>
+        <% include('./info',{
+        assignment:assignment,
+        submission:submission
+        }) %>
+    </li>
+    <% } %>
+</ul>

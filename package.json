@@ -17,7 +17,18 @@
     "grunt-contrib-requirejs": "*",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*",
-    "grunt-contrib-less": "*"
+    "grunt-contrib-less": "*",
+    "gulp": "^3.9.0",
+    "gulp-clean": "*",
+    "gulp-concat": "*",
+    "gulp-less": "*",
+    "gulp-minify-css": "*",
+    "gulp-rename": "*",
+    "gulp-sequence": "*",
+    "gulp-tmod": "*",
+    "gulp-uglify": "*",
+    "gulp-notify":"*",
+    "mkdirp":"*"
   },
   "devDependencies": {}
 }

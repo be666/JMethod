@@ -1,0 +1,90 @@
+.size(@width:0px,@height:0px) {
+  width: @width;
+  height: @height;
+  line-height: @height;
+}
+
+.size_inline(@width,@height) {
+  display: inline-block;
+  .size(@width, @height);
+}
+
+.face(@background,@color) {
+  background: @background;
+  color: @color;
+}
+
+.border-radius(@width){
+  border-radius:@width;
+  -moz-border-radius:@width;
+  -webkit-border-radius:@width;
+}
+//ui
+.face-action(@color,@bg,@hv,@ac,@di) {
+  .face(@bg, @color);
+  &:hover {
+    .face(@hv, @color)
+  }
+  &.active {
+    .face(@ac, @color)
+  }
+  &.disable {
+    .face(@di, @color)
+  }
+}
+
+.center() {
+  text-align: center;
+}
+
+.right() {
+  text-align: right;
+}
+
+.left() {
+  text-align: left;
+}
+
+.middle() {
+  vertical-align: middle;
+}
+
+.top() {
+  vertical-align: top;
+}
+
+.bottom() {
+  vertical-align: bottom;
+}
+
+.baseline() {
+  vertical-align: baseline;
+}
+
+._center() {
+  text-align: center !important;
+}
+
+._right() {
+  text-align: right !important;
+}
+
+._left() {
+  text-align: left !important;
+}
+
+._middle() {
+  vertical-align: middle !important;
+}
+
+._top() {
+  vertical-align: top !important;
+}
+
+._bottom() {
+  vertical-align: bottom !important;
+}
+
+._baseline() {
+  vertical-align: baseline !important;
+}

@@ -1,0 +1,29 @@
+<div class="gxb-dialog <%= splitJoin(className) %>">
+    <div class="gxb-dialog-heading">
+        <h5 class="gxb-dialog-title">
+            <%= title %>
+        </h5>
+    </div>
+    <div class="gxb-dialog-body">
+        <%= msg %>
+    </div>
+    <% if(!isEmptyArr(btns)){ %>
+    <div class="gxb-dialog-footer">
+        <%
+            var l = btns.length;
+        for(var i = 0;i < l;i++){
+            var btn = btns[i];
+        %>
+        <div class="col-md-<%= 12 / l %>">
+            <div class="btn btn-default <%= splitJoin(btn.className) %>"
+                    <%= attr("id", btn.id) %>
+                    <%= attr("name", btn.name) %>
+                    <%= attr("value", btn.value) %>
+                    >
+                <%= btn.text %>
+            </div>
+        </div>
+        <% } %>
+    </div>
+    <% } %>
+</div>
