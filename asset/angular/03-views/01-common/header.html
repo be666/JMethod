@@ -1,0 +1,21 @@
+<div class="row   header">
+    <div class="col-xs-2">
+        <a href="#" class="">
+            <img ng-src="{{logo.Src}}" alt="logo.alt" class="logo"/>
+        </a>
+    </div>
+    <div class="col-xs-9">
+        <ui class="nav nav-tabs">
+            <li ng-repeat="nav in navList" ng-class="{active:$state.includes(nav.state)}">
+                <a href="{{nav.url}}">
+                    <h2>
+                        {{nav.name}}
+                    </h2>
+                </a>
+            </li>
+        </ui>
+    </div>
+    <div class="col-xs-1">
+        <button type="button" class="btn btn-default navbar-btn">Sign in</button>
+    </div>
+</div>

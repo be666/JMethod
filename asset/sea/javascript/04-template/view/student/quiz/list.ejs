@@ -1,0 +1,21 @@
+<%
+var quizList = quizList || [];
+var qLength = quizList.length;
+var toggleClass = toggleClass || "";
+%>
+<%
+for(var i = 0;i < qLength;i++){
+    var unit = quizList[i];
+%>
+<div class="unit-list" data-unit-id="<%= unit['unitId'] %>">
+    <h4>
+        <%= unit['title'] %>
+        <span class="gxb-icon-toggle <%= toggleClass %>">
+
+        </span>
+    </h4>
+    <% include('./chapter',{
+    chapterList:unit.chapterList
+    }) %>
+</div>
+<% } %>

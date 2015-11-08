@@ -1,0 +1,104 @@
+<%
+var quiz = quiz || {};
+var submission = submission || {};
+var quizSubmissionList = quizSubmissionList || [];
+var qLength = quizSubmissionList.length;
+%>
+
+<div class="quiz-item gxb-hide">
+    <div class="quiz-info-wap">
+        <div class="quiz-info">
+            <div class="quiz-state">
+                <ul class="state-info">
+                    <li>
+                        <i class="gxb-icon-step-begin"></i>
+                        <span>未提交</span>
+                    </li>
+                    <li>
+                        <i class="gxb-icon-step-ing"></i>
+                        <span>提交中</span>
+                    </li>
+                    <li>
+                        <i class="gxb-icon-step-end"></i>
+                        <span>已截止</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="quiz-tips">
+                <div>
+                    有效提交次数
+                    <%= qLength %>/<%= quiz['allowedAttempts'] %>
+                </div>
+                <div>
+                    成绩评定算法:取最高分作为最终成绩
+                </div>
+                <div>
+
+                    测验限时:
+                    <% if(nothing(quiz['timeLimit'])){ %>
+                    不限时
+                    <% }else{ %>
+                    quiz['timeLimit']
+                    <% } %>
+                </div>
+            </div>
+            <div class="quiz-tool">
+                <i class="gxb-btn gxb-btn-menu quiz-join" context_id="<%= quiz['contextId'] %>" quiz_id="<%= quiz['quizId'] %>">
+                    开始测验
+                </i>
+            </div>
+        </div>
+        <% if(nothing(submission['publishedScore'])){ %>
+        <div class="quiz-score">
+            有效得分
+            <br/>
+            暂无成绩，请先提交测验
+        </div>
+        <% }else{ %>
+        <div class="quiz-score">
+            有效得分（分）
+            <i class="score-publish">
+                <%= submission['publishedScore'] %>
+            </i>
+            <i class="score-total">
+                /<%= quiz['totalScore'] %>
+            </i>
+        </div>
+        <% } %>
+    </div>
+
+    <% if(qLength > 0){ %>
+    <div class="quiz-history">
+        <p class="gxb-title">历史得分</p>
+        <table>
+            <thead>
+            <tr>
+                <th>次数</th>
+                <th>提交时间</th>
+                <th>得分</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%
+            for(var i = 0;i < qLength;i++){
+                var quizSubmission = quizSubmissionList[0];
+            %>
+            <tr>
+                <th>1</th>
+                <th><%= quizSubmission['finishedAt'] %></th>
+                <th><%= quizSubmission['keptScore'] %></th>
+                <th>
+                    <a class="quiz-view" href="javascript:void(0)"
+                       quiz_submission_id="<%= quizSubmission['quizSubmissionId'] %>"
+                       context_id="<%= quiz['contextId'] %>"
+                       quiz_id="<%= quiz['quizId'] %>"
+                            >查看详情</a>
+                </th>
+            </tr>
+            <% } %>
+            </tbody>
+        </table>
+    </div>
+    <% } %>
+</div>

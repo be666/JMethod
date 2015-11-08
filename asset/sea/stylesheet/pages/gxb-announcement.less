@@ -1,0 +1,118 @@
+.expired{
+  margin-top:20px;
+  h5{
+    color:#FA3E19!important;
+  }
+}
+.announcements-list{
+  .announcement-unit{
+    min-height:120px;
+    background:@color-white;
+    margin-top:20px;
+    position:relative;
+    padding:30px 20px 50px;
+    .announcement-icon-look{
+      position:absolute;
+      top:-20px;
+      left:50%;
+      margin-left:-20px;
+      .gxb-icon-lookNext();
+      z-index:99;
+    }
+    h2{
+      margin-bottom:8px;
+      em{
+        margin-right:10px;
+      }
+      span{
+        font-size:@font-size-h2;
+        color:#495159;
+        font-weight:normal;
+        .size_inline(auto,24px);
+        vertical-align:middle;
+
+      }
+    }
+    .announcement-content{
+      color:@color-58636B;
+      line-height:24px;
+      margin-top:22px;
+      height:50px;
+      overflow:hidden;
+
+
+      p{
+        color:@color-58636B;
+        margin-bottom:10px;
+      }
+      &.open{
+        height:auto;
+
+      }
+    }
+    .open-close-status{
+      position:absolute;
+      cursor:pointer;
+      left:50%;
+      bottom:15px;
+      margin-left:-14px;
+
+    }
+  }
+}
+/*日历*/
+.calendar-container{
+  background:@color-white;
+  margin-left:240px;
+  .calendar-title{
+    .size(auto,60px);
+    background:@color-g03;
+    color:@color-t01;
+    border-bottom:1px solid @color-g01;
+    a{
+      color:@color-92A5B3;
+      .size_inline(61px,16px);
+      border-right:1px solid @color-g01;
+      margin-right:19px;
+    }
+    span{
+      font-size:@font-size-h3;
+      color:@color-t01;
+
+    }
+
+  }
+  .calendar-wrapper{
+    position:relative;
+    .submit_deadline{
+      color:@color-t01;
+      position:absolute;
+      top:18px;
+      left:40px;
+    }
+    li{
+      h2{
+        margin-bottom:10px;
+        a{
+          font-size:@font-size-h2;
+          color:@color-495159;
+          font-weight:normal;
+          &:hover{
+            color:@color-t06;
+          }
+        }
+      }
+      .calendar-content{
+        margin-top:23px;
+        line-height:24px;
+        color:@color-58636B;
+        *{
+          color:inherit;
+        }
+        p{
+          margin-bottom:10px;
+        }
+      }
+    }
+  }
+}

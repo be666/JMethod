@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <!-- empty template begin-->
+    <!-- 主模版页  上中下布局 -->
+    <definition name="template" template="/WEB-INF/jsp/template/template_main.jsp">
+        <put-attribute name="header" value="/WEB-INF/jsp/template/empty.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/template/empty.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/jsp/template/empty.jsp"/>
+    </definition>
+
+    <!-- 左右布局-->
+    <definition name="template.lr" template="/WEB-INF/jsp/template/template_lr.jsp">
+        <put-attribute name="content_l" value="/WEB-INF/jsp/template/empty.jsp"/>
+        <put-attribute name="content_r" value="/WEB-INF/jsp/template/empty.jsp"/>
+    </definition>
+
+    <!-- 左中右布局 -->
+    <definition name="template.lcr" template="/WEB-INF/jsp/template/template_lcr.jsp">
+        <put-attribute name="content_l" value="/WEB-INF/jsp/template/empty.jsp"/>
+        <put-attribute name="content_c" value="/WEB-INF/jsp/template/empty.jsp"/>
+        <put-attribute name="content_r" value="/WEB-INF/jsp/template/empty.jsp"/>
+    </definition>
+
+    <!-- 上下布局-->
+    <definition name="template.tb" template="/WEB-INF/jsp/template/template_tb.jsp">
+        <put-attribute name="content_t" value="/WEB-INF/jsp/template/empty.jsp"/>
+        <put-attribute name="content_b" value="/WEB-INF/jsp/template/empty.jsp"/>
+    </definition>
+
+    <!-- 上下布局-->
+    <definition name="template.tmb" template="/WEB-INF/jsp/template/template_tmb.jsp">
+        <put-attribute name="content_t" value="/WEB-INF/jsp/template/empty.jsp"/>
+        <put-attribute name="content_m" value="/WEB-INF/jsp/template/empty.jsp"/>
+        <put-attribute name="content_b" value="/WEB-INF/jsp/template/empty.jsp"/>
+    </definition>
+
+    <!-- 上 ＋ 下（左右）布局 -->
+    <definition name="template.tlr" template="/WEB-INF/jsp/template/template_tlr.jsp">
+        <put-attribute name="content_t" value="/WEB-INF/jsp/template/empty.jsp"/>
+        <put-attribute name="content_l" value="/WEB-INF/jsp/template/empty.jsp"/>
+        <put-attribute name="content_r" value="/WEB-INF/jsp/template/empty.jsp"/>
+    </definition>
+
+    <!--  左 ＋ 右（上下）布局 -->
+    <definition name="template.ltb" template="/WEB-INF/jsp/template/template_ltb.jsp">
+        <put-attribute name="content_l" value="/WEB-INF/jsp/template/empty.jsp"/>
+        <put-attribute name="content_t" value="/WEB-INF/jsp/template/empty.jsp"/>
+        <put-attribute name="content_b" value="/WEB-INF/jsp/template/empty.jsp"/>
+    </definition>
+
+    <!-- 左 ＋ 右（上 ＋下（左 ＋ 右））） -->
+    <definition name="template.ltcr" template="/WEB-INF/jsp/template/template_ltcr.jsp">
+        <put-attribute name="content_l" value="/WEB-INF/jsp/template/empty.jsp"/>
+        <put-attribute name="content_t" value="/WEB-INF/jsp/template/empty.jsp"/>
+        <put-attribute name="content_b" value="/WEB-INF/jsp/template/empty.jsp"/>
+    </definition>
+
+    <!-- 左 ＋ 中（上 ＋下）+ 右 -->
+    <definition name="template.ltbr" template="/WEB-INF/jsp/template/template_ltbr.jsp">
+        <put-attribute name="content_l" value="/WEB-INF/jsp/template/empty.jsp"/>
+        <put-attribute name="content_t" value="/WEB-INF/jsp/template/empty.jsp"/>
+        <put-attribute name="content_b" value="/WEB-INF/jsp/template/empty.jsp"/>
+        <put-attribute name="content_r" value="/WEB-INF/jsp/template/empty.jsp"/>
+    </definition>
+
+    <!-- empty template end-->
+
+
+    <!-- template begin -->
+
+    <!-- 前台 通用 定义-->
+    <definition name="portal" extends="template">
+        <put-attribute name="header" value="/WEB-INF/jsp/common/portal_header.jsp"/>
+        <put-attribute name="bottom" value="/WEB-INF/jsp/common/portal_footer.jsp"/>
+    </definition>
+
+    <!-- 后台 通用定义-->
+    <definition name="console" extends="template">
+        <put-attribute name="title" value="后台管理系统-高校邦"/>
+        <put-attribute name="header" value="/WEB-INF/jsp/common/portal_header.jsp"/>
+        <put-attribute name="bottom" value="/WEB-INF/jsp/common/portal_footer.jsp"/>
+    </definition>
+
+    <definition name="student" extends="template">
+        <put-attribute name="title" value="学习管理系统-高校邦"/>
+        <put-attribute name="header" value="/WEB-INF/jsp/common/portal_header.jsp"/>
+        <put-attribute name="bottom" value="/WEB-INF/jsp/common/portal_footer.jsp"/>
+    </definition>
+
+    <definition name="teacher" extends="template">
+        <put-attribute name="title" value="教学管理系统-高校邦"/>
+        <put-attribute name="header" value="/WEB-INF/jsp/common/portal_header.jsp"/>
+        <put-attribute name="bottom" value="/WEB-INF/jsp/common/portal_footer.jsp"/>
+    </definition>
+
+
+    <definition name="tenant" extends="template">
+        <put-attribute name="title" value="租户管理系统-高校邦"/>
+        <put-attribute name="header" value="/WEB-INF/jsp/common/portal_header.jsp"/>
+        <put-attribute name="bottom" value="/WEB-INF/jsp/common/portal_footer.jsp"/>
+    </definition>
+    <!-- template end -->
+
+</tiles-definitions>

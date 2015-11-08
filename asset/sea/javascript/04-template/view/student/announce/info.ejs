@@ -1,0 +1,23 @@
+<%
+var announceList = announceList || [];
+var aLength = announceList.length;
+var toggleClass = toggleClass || "";
+%>
+<%
+for(var i = 0;i < aLength;i++){
+    var announce = announceList[i];
+%>
+<div class="announcement-unit">
+    <i class="announcement-icon-look"></i>
+
+    <h2><em class="gxb-read-status gxb-hide">未读</em><span><%=announce.title%></span></h2>
+
+    <div class="update-time">更新时间：2015年8月1日 14：30</div>
+    <div class="announcement-content">
+        <%==announce.detail%>
+    </div>
+    <i class="open-close-status open-close"></i>
+</div>
+<%
+}
+%>

@@ -1,0 +1,12 @@
+.progress-outer(@w,@h,@r) {
+  width: @w;
+  height: @h;
+  text-align: left;
+  background: @color-b01;
+  .border-radius(@r);
+  .progress-inner {
+    height: @h;
+    background: @color-b03;
+    .border-radius(@r);
+  }
+}

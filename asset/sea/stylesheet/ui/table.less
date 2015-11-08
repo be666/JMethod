@@ -1,0 +1,35 @@
+table, .gxb-table {
+  width: 100%;
+  background: @color-white;
+  tr, td, th {
+    line-height: 40px;
+  }
+  thead, .gxb-thead {
+    background: @color-g01;
+  }
+  tbody, .gxb-body {
+    tr {
+      &:hover {
+        .face(yellow, red)
+      }
+    }
+  }
+  border: 0 solid @color-g01;
+  tr, .gxb-tr {
+    border-left-width: 1px;
+    td {
+      border-right-width: 1px;
+    }
+  }
+  thead, .gxb-thead {
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+  }
+  tbody, .gxb-tbody {
+    border-bottom-width: 1px;
+  }
+  tfoot, .gxb-tfoot {
+    border-bottom-width: 1px;
+  }
+}
+

@@ -1,0 +1,41 @@
+<%
+var calendarList = calendarList || [];
+var cLength = calendarList.length;
+var flag = 0;
+var expiredTime="";
+%>
+<%
+for(var i = 0;i < cLength;i++){
+    var calendar = calendarList[i];
+%>
+<li>
+
+    <i class="sequence-no"></i>
+
+    <h2>
+        <a href="javascript:void(0)"><%= calendar.taskName %></a>
+    </h2>
+
+    <div class="update-time"><%=calendar.expireTime%><br />
+        <%
+        if(expireTime(calendar.expireTime)){
+            flag = i + 1;
+        %>
+        <span class="expired">已过期</span>
+        <%
+        } else if(i != 0 && flag == i||expiredTime==calendar.expireTime){
+            expiredTime=calendar.expireTime;
+        %>
+        <span class="expiring">即将到期</span>
+        <% } %>
+    </div>
+
+
+    <div class="calendar-content">
+        <%== calendar.taskContent %>
+
+    </div>
+</li>
+<%
+}
+%>

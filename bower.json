@@ -18,9 +18,13 @@
   ],
   "dependencies": {
     "bootstrap": "~3.3.5",
-    "angular": "~1.4.7",
     "jquery": "1.11.3",
-    "less": "~2.5.3",
-    "jquery-ui": "jqueryui#1.11.4"
+    "jquery-ui": "jqueryui#1.11.4",
+    "angular": "~1.4.7",
+    "angular-route": "~1.4.0",
+    "angular-loader": "~1.4.0",
+    "angular-mocks": "~1.4.0",
+    "html5-boilerplate": "~5.2.0",
+    "less": "~2.5.3"
   }
 }
