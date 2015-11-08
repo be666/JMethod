@@ -22,17 +22,17 @@
 	
 	<!--Spring ApplicationContext 载入 -->
 	<listener>
-		<listener-class>com.gxb.sites.web.sys.GxbContextLoaderListener</listener-class>
+		<listener-class>com.imethod.sites.web.sys.IContextLoaderListener</listener-class>
 	</listener>
 
 	<!-- Spring MVC Servlet -->
 	<servlet>
 		<servlet-name>springServlet</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<servlet-class>com.imethod.sites.web.sys.IDispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-				classpath:spring/spring-mvc.xml
+				classpath*:/spring-mvc.xml
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
@@ -65,14 +65,4 @@
 
 	<!-- Open Entity Manager in View filter -->
 
-
-
-	<jsp-config>
-		<taglib>
-			<!-- 配置标签的引用地址 JSP页面中引用时使用-->
-			<taglib-uri>http://www.gaoxiaobang.com</taglib-uri>
-			<!-- 配置标签的TLD文件地址 -->
-			<taglib-location>/WEB-INF/dtd/gxb.tld</taglib-location>
-		</taglib>
-	</jsp-config>
 </web-app>

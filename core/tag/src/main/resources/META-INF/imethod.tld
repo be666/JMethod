@@ -9,13 +9,13 @@
     <!-- 定义函数名称 -->
     <short-name>gxb</short-name>
 
-    <uri>http://www.gaoxiaobang.com</uri>
+    <uri>http://www.github.com/imethod</uri>
     <!-- 定义 -->
     <function>
         <!-- 定义：toJSONlLine -->
         <name>toJSONlLine</name>
         <!-- 定义函数处理类 -->
-        <function-class>com.gxb.sites.web.sys.tag.GxbTag</function-class>
+        <function-class>com.imethod.core.tag.ITag</function-class>
         <!-- 定义函数的对应方法 -->
         <function-signature>
             java.lang.String toJSONlLine(java.lang.Object)

@@ -7,7 +7,7 @@
     <parent>
         <groupId>com.imethod</groupId>
         <artifactId>parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>${imethod.version}</version>
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
     <artifactId>log</artifactId>

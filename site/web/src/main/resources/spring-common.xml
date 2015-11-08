@@ -16,7 +16,7 @@
     <context:annotation-config/>
 
     <!-- 使用annotation 自动注册bean,并检查@Required,@Autowired的属性已被注入 -->
-    <context:component-scan base-package="com.gxb.sites.web">
+    <context:component-scan base-package="com.imethod.sites.web">
         <context:include-filter type="regex" expression="\.service\."/>
     </context:component-scan>
 
@@ -24,8 +24,7 @@
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basenames">
             <list>
-                <!-- 在web环境中一定要定位到classpath 否则默认到当前web应用下找 -->
-                <value>classpath:messages</value>
+                <value>/WEB-INF/i18n/message</value>
             </list>
         </property>
         <property name="useCodeAsDefaultMessage" value="false"/>
@@ -34,7 +33,7 @@
     </bean>
 
 
-    <bean id="applicationHelper" class="com.gxb.sites.web.sys.ApplicationHelper" lazy-init="true"/>
+    <bean id="applicationHelper" class="com.imethod.sites.web.sys.IApplicationHelper" lazy-init="true"/>
 
     <!-- production环境 -->
     <beans profile="production">

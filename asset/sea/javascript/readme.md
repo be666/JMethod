@@ -4,7 +4,7 @@
     引入 jquery bootstrap seajs arttemplate(模版引擎)
 ##   01-core
     基础组件与封装
-    * 00-gxb.js     基础单元  
+    * 00-imethod.js     基础单元  
     * 01-log.js     conole.log 处理
     * 02-json.js    JSON 修正
     * 03-http.js    ajax 封装 
@@ -17,7 +17,7 @@
     ```
     define('service/mvc_service', function (require, exports, module) {
       exports.query = function (callback) {
-        gxb._.ajax({
+        imethod._.ajax({
           url: "/mvc/demo",
           type: "post",
           success: function (res) {
@@ -26,7 +26,7 @@
           }
         })
       }
-      gxb.service.mvc_service = module.exports
+      imethod.service.mvc_service = module.exports
     });
     ```
     说明:
@@ -34,10 +34,10 @@
     ```
     define('service/xxx_service', function (require, exports, module) {
           ....
-          gxb.service.xxx_service = module.exports
+          imethod.service.xxx_service = module.exports
     });
     ```
-    2. gxb._.ajax  代替 $.ajax  为统一控制
+    2. imethod._.ajax  代替 $.ajax  为统一控制
     
 ##   04-template
     视图 模版 
@@ -58,8 +58,8 @@
           $("<div></div>").html(viewDemo(res)).appendTo("body")
         })
       }
-      gxb.controller.mvc = gxb.controller.mvc || {};
-      gxb.controller.mvc.demo = module.exports;
+      imethod.controller.mvc = imethod.controller.mvc || {};
+      imethod.controller.mvc.demo = module.exports;
     });
     ```
     说明:
@@ -69,7 +69,7 @@
               var mvcService = require("service/xxx");
               var viewDemo = require("view/xxx");
               
-              gxb.controller.xxx= module.exports;
+              imethod.controller.xxx= module.exports;
             });
         ```
         2. 必须在[] 申明 依赖，在 require 取到对应对象，方法

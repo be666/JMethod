@@ -1,3 +1,8 @@
+<%@ page import="org.springframework.data.redis.core.RedisTemplate" %>
+<%@ page import="org.springframework.web.context.support.WebApplicationContextUtils" %>
+<%@ page import="org.springframework.data.redis.core.BoundValueOperations" %>
+<%@ page import="java.util.concurrent.TimeUnit" %>
+<%@ page import="org.springframework.data.redis.core.BoundHashOperations" %>
 <%--
   Created by IntelliJ IDEA.
   User: admin
@@ -32,6 +37,13 @@
     </script>
 </head>
 <body>
+<%
+    RedisTemplate redisTemplate= (RedisTemplate) WebApplicationContextUtils.getWebApplicationContext(request.getServletContext()).getBean("redisTemplate");
+    BoundHashOperations boundValueOperations=redisTemplate.boundHashOps("test");
+    boundValueOperations.put("test", "fuck");
+    boundValueOperations.expire(100000l, TimeUnit.DAYS);
+    System.out.println(redisTemplate.keys("test").size());
+%>
 <a href="${contextPath}/ui">ui</a>
 <a href="${contextPath}/class/2086/unit">unit</a>
 </body>

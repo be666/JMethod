@@ -1,4 +1,4 @@
-package com.imethod.modules.cache;
+package com.imethod.modules.cache.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;

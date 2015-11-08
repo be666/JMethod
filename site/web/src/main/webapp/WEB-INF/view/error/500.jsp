@@ -1,4 +1,3 @@
-<%@ page import="com.gxb.sites.web.sys.ApiException" %>
 <%@ page import="java.io.OutputStream" %>
 <%--
   Created by IntelliJ IDEA.
@@ -14,10 +13,10 @@
     Object exception = request.getAttribute("exception");
     String errorMsg = "";
 
-    if (exception instanceof ApiException) {
-        ApiException apiException = (ApiException) exception;
-        errorMsg = apiException.getMessage();
-    }
+//    if (exception instanceof ApiException) {
+//        ApiException apiException = (ApiException) exception;
+//        errorMsg = apiException.getMessage();
+//    }
     if ("true".equals(responseBody)) {
         response.setContentType("application/json; charset=UTF-8");
         OutputStream outputStream = response.getOutputStream();

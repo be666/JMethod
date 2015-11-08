@@ -6,7 +6,7 @@
 
     <groupId>com.imethod</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>${imethod.version}</version>
     <name>parent</name>
     <packaging>pom</packaging>
 
@@ -15,6 +15,7 @@
     </prerequisites>
 
     <properties>
+        <imethod.version>1.0.0-SNAPSHOT</imethod.version>
         <java.version>1.8</java.version>
         <resource.delimiter>@</resource.delimiter>
         <com.imethod.version>1.0.0-SNAPSHOT</com.imethod.version>
@@ -107,31 +108,6 @@
             <!-- imethod-->
             <dependency>
                 <groupId>com.imethod</groupId>
-                <artifactId>core</artifactId>
-                <version>${com.imethod.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.imethod</groupId>
-                <artifactId>util</artifactId>
-                <version>${com.imethod.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.imethod</groupId>
-                <artifactId>log</artifactId>
-                <version>${com.imethod.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.imethod</groupId>
-                <artifactId>mail</artifactId>
-                <version>${com.imethod.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.imethod</groupId>
-                <artifactId>schedule</artifactId>
-                <version>${com.imethod.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.imethod</groupId>
                 <artifactId>filter</artifactId>
                 <version>${com.imethod.version}</version>
             </dependency>
@@ -142,7 +118,22 @@
             </dependency>
             <dependency>
                 <groupId>com.imethod</groupId>
+                <artifactId>log</artifactId>
+                <version>${com.imethod.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.imethod</groupId>
+                <artifactId>util</artifactId>
+                <version>${com.imethod.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.imethod</groupId>
                 <artifactId>tag</artifactId>
+                <version>${com.imethod.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.imethod</groupId>
+                <artifactId>util</artifactId>
                 <version>${com.imethod.version}</version>
             </dependency>
             <dependency>
@@ -152,12 +143,22 @@
             </dependency>
             <dependency>
                 <groupId>com.imethod</groupId>
-                <artifactId>mail</artifactId>
+                <artifactId>client</artifactId>
                 <version>${com.imethod.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.imethod</groupId>
-                <artifactId>mq</artifactId>
+                <artifactId>email</artifactId>
+                <version>${com.imethod.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.imethod</groupId>
+                <artifactId>jms</artifactId>
+                <version>${com.imethod.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.imethod</groupId>
+                <artifactId>schedule</artifactId>
                 <version>${com.imethod.version}</version>
             </dependency>
             <!-- spring-->
@@ -333,6 +334,13 @@
 
             <!-- LOGGING begin -->
             <!-- slf4j -->
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
