@@ -21,11 +21,11 @@
     jms（activeMq）支持
 * module/schedule
     schedule（quart）支持
-*core
+* core
     base 基础工具类
-*asset/angular
+* asset/angular
     angular 单页面应用 for app
-*asset/sea
+* asset/sea
   s eajs 模块化加载 for web
 
 
