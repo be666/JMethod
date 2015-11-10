@@ -15,6 +15,7 @@
     <modules>
         <module>core</module>
         <module>module</module>
+        <module>service</module>
         <module>site</module>
         <module>asset</module>
     </modules>

@@ -1,4 +1,4 @@
-package com.imethod.core.logger;
+package com.imethod.core.log;
 
 /**
  * Created by Bcaring on 15/6/12.

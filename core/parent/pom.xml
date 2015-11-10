@@ -18,7 +18,6 @@
         <imethod.version>1.0.0-SNAPSHOT</imethod.version>
         <java.version>1.8</java.version>
         <resource.delimiter>@</resource.delimiter>
-        <com.imethod.version>1.0.0-SNAPSHOT</com.imethod.version>
         <!-- delimiter that doesn't clash with Spring ${} placeholders -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -29,6 +28,8 @@
         <!-- 主要依赖库的版本定义 -->
         <spring.version>4.2.1.RELEASE</spring.version>
         <spring.redis.version>1.6.0.RELEASE</spring.redis.version>
+        <com.imethod.version>1.0.0-SNAPSHOT</com.imethod.version>
+        <dbcp.version>1.4</dbcp.version>
         <!-- aop -->
         <aspectj.version>1.8.4</aspectj.version>
         <!-- persistence -->
@@ -98,6 +99,9 @@
         <!-- Plugin的属性 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.7</java.version>
+
+
+        <mysql.version>5.1.35</mysql.version>
     </properties>
 
 
@@ -161,6 +165,7 @@
                 <artifactId>schedule</artifactId>
                 <version>${com.imethod.version}</version>
             </dependency>
+
             <!-- spring-->
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -186,6 +191,12 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context-support</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
                 <version>${spring.version}</version>
             </dependency>
 
@@ -411,6 +422,11 @@
             </dependency>
 
             <dependency>
+                <groupId>commons-dbcp</groupId>
+                <artifactId>commons-dbcp</artifactId>
+                <version>${dbcp.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-pool2</artifactId>
                 <version>${commons-pool-version}</version>
@@ -514,6 +530,18 @@
                 <scope>test</scope>
             </dependency>
 
+            <!-- mybatis -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis-spring.version}</version>
+            </dependency>
+
             <!-- spring -->
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -603,6 +631,13 @@
                 <version>${activemq.version}</version>
             </dependency>
 
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
             <!-- TEST end -->
         </dependencies>
     </dependencyManagement>
@@ -636,38 +671,5 @@
             <timezone>8</timezone>
         </developer>
     </developers>
-
-    <repositories>
-        <repository>
-            <id>nexus</id>
-            <name>Team Nexus Repository</name>
-            <url>http://0.0.0.0:8081/nexus/content/groups/public/</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>nexus</id>
-            <name>Team Nexus Repository</name>
-            <url>http://0.0.0.0:8081/nexus/content/groups/public/</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
-
-    <distributionManagement>
-        <repository>
-            <id>releases</id>
-            <url>http://0.0.0.0:8081/nexus/content/repositories/releases</url>
-        </repository>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <url>http://0.0.0.0:8081/nexus/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
 
 </project>

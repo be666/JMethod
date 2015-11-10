@@ -1,4 +1,4 @@
-package com.imethod.core.logger;
+package com.imethod.core.log;
 
 
 import org.apache.commons.logging.Log;

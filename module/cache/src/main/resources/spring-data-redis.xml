@@ -9,7 +9,7 @@
     <bean id="redis"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
           p:locations="classpath:/redis.properties"
-          p:order="1"/>
+          />
     <bean id="redisSentinelConfiguration"
           class="org.springframework.data.redis.connection.RedisSentinelConfiguration"
             >

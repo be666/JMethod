@@ -576,4 +576,7 @@ public class StringTools {
         return url;
     }
 
+    public static String repeat(String s, int i) {
+        return StringUtils.repeat(s,i);
+    }
 }

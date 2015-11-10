@@ -1,7 +1,7 @@
 package com.imethod.module.client.rest;
 
-import com.imethod.core.logger.Logger;
-import com.imethod.core.logger.LoggerFactory;
+import com.imethod.core.log.Logger;
+import com.imethod.core.log.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Map;
