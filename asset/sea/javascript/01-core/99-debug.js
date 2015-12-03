@@ -1,5 +1,5 @@
 /**
- * auth : bqxu
+ * auth : iMethod
  * create_at: 15/10/24.
  * desc:
  * note:
@@ -7,5 +7,5 @@
  */
 (function ($w) {
 
-  $w.gxb.debug = {};
+    $w.iMethod.debug = {};
 })(window);

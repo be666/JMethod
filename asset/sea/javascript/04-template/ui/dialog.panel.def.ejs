@@ -1,27 +1,32 @@
-<div class="gxb-dialog <%= splitJoin(className) %>">
-    <div class="gxb-dialog-heading">
-        <h5 class="gxb-dialog-title">
+<%
+var buttons = buttons || [];
+var title = title || [];
+var content = content || [];
+var bLength = buttons.length;
+%>
+<div class="iMethod-dialog-panel <%= splitJoin(className) %>">
+    <div class="iMethod-dialog-heading">
+        <h5 class="iMethod-dialog-title">
             <%= title %>
         </h5>
+        <i class="iMethod-dialog-close">
+            X
+        </i>
     </div>
-    <div class="gxb-dialog-body">
-        <%= msg %>
+    <div class="iMethod-dialog-body">
+        <%== content %>
     </div>
-    <% if(!isEmptyArr(btns)){ %>
-    <div class="gxb-dialog-footer">
+    <% if(!isEmptyArr(buttons)){ %>
+    <div class="iMethod-dialog-footer">
         <%
-            var l = btns.length;
-        for(var i = 0;i < l;i++){
-            var btn = btns[i];
+        for(var i = 0;i < bLength;i++){
+            var btn = buttons[i];
         %>
-        <div class="col-md-<%= 12 / l %>">
-            <div class="btn btn-default <%= splitJoin(btn.className) %>"
-                    <%= attr("id", btn.id) %>
-                    <%= attr("name", btn.name) %>
-                    <%= attr("value", btn.value) %>
-                    >
-                <%= btn.text %>
-            </div>
+        <div class="iMethod-btn iMethod-btn-dialog <%= splitJoin(btn.className) %>"
+                <%= attr("name", btn.name) %>
+                <%= attr("value", btn.value) %>
+                >
+            <%= btn.text %>
         </div>
         <% } %>
     </div>

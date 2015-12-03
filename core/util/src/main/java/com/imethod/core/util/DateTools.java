@@ -6,9 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
-/**
- * @author lh
- */
 public class DateTools {
     private static final String DATE = "yyyy-MM-dd";
     private static final String DATE_TIME = "yyyy-MM-dd HH:mm:ss";
@@ -18,7 +15,7 @@ public class DateTools {
 
     public static Date getCurrentDateTime() {
         Date date = new Date();
-        return  date;
+        return date;
     }
 
     public enum DateType {
@@ -26,12 +23,23 @@ public class DateTools {
         DATE_TIME
     }
 
-    public static Timestamp getTime(String strTime) {
+    public static Date getDateTime(String strTime) {
+        if(StringTools.isBlank(strTime)){
+            return null;
+        }
+        return getTime(strTime, DateType.DATE_TIME);
+    }
+
+    public static Date getDate(String strTime) {
         return getTime(strTime, DateType.DATE);
     }
 
-    public static String format(Date date) {
+    public static String formatDate(Date date) {
         return format(date, DateType.DATE);
+    }
+
+    public static String formatDateTime(Date date) {
+        return format(date, DateType.DATE_TIME);
     }
 
     public static String format(Date date, DateType dateType) {

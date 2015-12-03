@@ -1,0 +1,52 @@
+.iMethod-table {
+  width: 100%;
+  max-width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  border-top: 0;
+  border-bottom: 0;
+
+  .iMethod-table-head {
+    td {
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+  .iMethod-table-head, .iMethod-table-body, .iMethod-table-foot {
+    tr {
+      border-top: 1px solid #ddd;
+
+    }
+    td {
+      border-left: 1px solid #ddd;
+      padding: 8px;
+      line-height: 1.32;
+      vertical-align: middle;
+    }
+    td:first-child {
+      border-left: 0;
+    }
+  }
+  .iMethod-table-body, .iMethod-table-foot {
+    border-bottom: 1px solid #ddd;
+  }
+
+  .iMethod-table-body {
+    tr{
+      &:hover {
+        background: #fcf8e3;
+      }
+    }
+  }
+
+}
+
+.iMethod-table-warp {
+  margin: 0 auto;
+  padding: 0 10px;
+  min-height: 370px;
+  .iMethod-tlc {
+    text-align: center;
+  }
+}

@@ -1,7 +1,7 @@
 package com.imethod.sites.web.sys;
 
-import com.imethod.core.logger.Logger;
-import com.imethod.core.logger.LoggerFactory;
+import com.imethod.core.log.Logger;
+import com.imethod.core.log.LoggerFactory;
 import com.imethod.core.util.IOTools;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

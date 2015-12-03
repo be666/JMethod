@@ -1,21 +1,8 @@
-/**
- * Copyright (c)  2014-2020 Gaoxiaobang, Inc.
- * All rights reserved.
- * <p>
- * This software is the confidential and proprietary information of Gaoxiaobang,
- * Inc. ("Confidential Information"). You shall not
- * disclose such Confidential Information and shall use it only in
- * accordance with the terms of the license agreement you entered into with Gaoxiaobang.
- */
 package com.imethod.core.util;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * @author lh
- * @date 2015年10月21日
- */
 public class ValidatorTools {
     private static final String NAME_PATTERN_EN = "^[A-Za-z\\.\\- ]+$";
     private static final String NAME_PATTERN_CN = "^[\\u3400-\\u4db5\\u4e00-\\u9fbb\\ue815-\\ue864\\uf92c-\\ufa29\\u00b7\\u2022\\.]+$";
