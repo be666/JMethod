@@ -1,4 +1,4 @@
-# 高校邦 
+# iMethod sea
 
 ## runtime
 
@@ -15,20 +15,3 @@ ejs :模版语法高亮支持
 markdown support :方便 书写阅读 readme.md
 
 
-## maven 
-<plugin>
-    <artifactId>exec-maven-plugin</artifactId>
-    <groupId>org.codehaus.mojo</groupId>
-    <executions>
-        <execution>
-            <id>frontend</id>
-            <phase>generate-sources</phase>
-            <goals>
-                <goal>exec</goal>
-            </goals>
-            <configuration>
-                <executable>${basedir}/exec.sh</executable>
-            </configuration>
-        </execution>
-    </executions>
-</plugin>

@@ -504,12 +504,6 @@ public class StringTools {
         return split2map(",", ":", paramStr);
     }
 
-    /**
-     * 将字符串根据两个分隔符分割为Map
-     *
-     * @author lh
-     * @date 2015年10月26日
-     */
     public static Map<String, Object> split2map(final String separatorChar, final String separatorChar2, final String paramStr) {
         if (StringTools.isBlank(paramStr)) return null;
 
@@ -577,6 +571,6 @@ public class StringTools {
     }
 
     public static String repeat(String s, int i) {
-        return StringUtils.repeat(s,i);
+        return StringUtils.repeat(s, i);
     }
 }

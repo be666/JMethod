@@ -9,10 +9,10 @@
     <bean id="redis"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
           p:locations="classpath:/redis.properties"
-          />
+    />
     <bean id="redisSentinelConfiguration"
           class="org.springframework.data.redis.connection.RedisSentinelConfiguration"
-            >
+    >
         <property name="master">
             <bean class="org.springframework.data.redis.connection.RedisNode">
                 <property name="name" value="${redis.master}"/>
@@ -44,20 +44,28 @@
         <constructor-arg ref="redisSentinelConfiguration" index="0"/>
         <constructor-arg ref="jedisPoolConfig" index="1"/>
     </bean>
+
+
     <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
           p:connectionFactory-ref="jedisConnectionFactory"
-            >
+    >
         <property name="keySerializer">
             <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
         </property>
         <property name="valueSerializer">
-            <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
+            <bean class="org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer"/>
         </property>
         <property name="hashKeySerializer">
             <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
         </property>
         <property name="hashValueSerializer">
-            <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
+            <bean class="org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer"/>
         </property>
     </bean>
+
+    <!-- spring自己的换管理器，这里定义了两个缓存位置名称 ，既注解中的value -->
+    <bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">
+        <constructor-arg name="redisOperations" ref="redisTemplate"/>
+    </bean>
+
 </beans>

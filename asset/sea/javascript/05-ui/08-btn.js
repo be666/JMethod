@@ -1,5 +1,5 @@
 /**
- * auth : bqxu
+ * auth : iMethod
  * create_at: 15/10/30.
  * desc:
  * 封装按钮事件 提交 ,取消
@@ -12,10 +12,10 @@
  *  1.
  */
 (function ($w, $) {
-    var utils = $w.gxb.utils;
+    var utils = $w.iMethod.utils;
 
-    $w.gxb.btn = [];
-    $w.gxb.def = {};
+    $w.iMethod.btn = [];
+    $w.iMethod.def = {};
     //参数配置
     var status = {
         disable: 0,
@@ -24,7 +24,7 @@
         complete: 3
     }
 
-    $w.gxb.def.btn = {
+    $w.iMethod.def.btn = {
         disableText: "提交x",
         normalText: "提交",
         submittingText: "提交中",
@@ -51,10 +51,10 @@
         }
     };
 
-    var gxbBtn = function (targetId, args) {
+    var iMethodBtn = function (targetId, args) {
         var _t = "#" + targetId;
         var $btn = $(_t);
-        $btn.data("gxbBtn", "complete");
+        $btn.data("iMethodBtn", "complete");
         var handler = {
             setStatus: function (status) {
                 switch (status) {
@@ -84,7 +84,7 @@
             },
             ajax: function () {
                 if (config.url) {
-                    gxb._.ajax({
+                    iMethod._.ajax({
                         url: config.url,
                         data: config.data,
                         type: config.type,
@@ -122,7 +122,7 @@
             }
         };
 
-        var config = $.extend({}, $w.gxb.def.btn, args);
+        var config = $.extend({}, $w.iMethod.def.btn, args);
         $btn.on("click", function () {
             if (handler.beforeClick()) {
                 handler.setStatus(status.submitting);
@@ -133,27 +133,27 @@
 
     };
 
-    $w.gxb.btn = [];
+    $w.iMethod.btn = [];
 
-    $.fn.gxbBtn = function (args) {
+    $.fn.iMethodBtn = function (args) {
         var $Target = $(this);
         var $TargetId = $Target.attr("id");
         if (typeof $TargetId == "undefined") {
-            $TargetId = "gxb_btn_" + gxb.seq();
+            $TargetId = "iMethod_btn_" + iMethod.seq();
             $Target.attr("id", $TargetId)
         }
-        if ($Target.data("gxbBtn") !== "complete") {
-            if (typeof $w.gxb.btn[$TargetId] != "undefined") {
-                $w.gxb.btn[$TargetId].destroy()
+        if ($Target.data("iMethodBtn") !== "complete") {
+            if (typeof $w.iMethod.btn[$TargetId] != "undefined") {
+                $w.iMethod.btn[$TargetId].destroy()
             }
-            $w.gxb.btn[$TargetId] = null
+            $w.iMethod.btn[$TargetId] = null
         }
-        if (typeof $w.gxb.btn[$TargetId] == "undefined" || $w.gxb.btn[$TargetId] == null) {
-            $w.gxb.btn[$TargetId] = new gxbBtn($TargetId, args)
+        if (typeof $w.iMethod.btn[$TargetId] == "undefined" || $w.iMethod.btn[$TargetId] == null) {
+            $w.iMethod.btn[$TargetId] = new iMethodBtn($TargetId, args)
         } else {
-            $w.gxb.btn[$TargetId].setConfig(args)
+            $w.iMethod.btn[$TargetId].setConfig(args)
         }
-        return $w.gxb.btn[$TargetId];
+        return $w.iMethod.btn[$TargetId];
     }
 
 })(window, jQuery);

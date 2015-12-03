@@ -1,0 +1,103 @@
+body {
+  background: @body-bg;
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+.iMethod-header-warp, .iMethod-footer-warp {
+  padding: 20px 0;
+  line-height: 1.5;
+  font-size: 16px;
+  background: @panel-bg;
+  width: 100%;
+  border-bottom:1px solid #ddd ;
+  border-top:1px solid #ddd ;
+}
+
+.iMethod-body, .iMethod-footer, .iMethod-header {
+  width: @body-width;
+  margin: 0 auto;
+}
+
+.iMethod-body {
+  min-height: @body-min-height;
+}
+
+.iMethod-nav {
+  .nav-warp {
+    display: block;
+    li {
+      > .nav-warp {
+        display: none;
+      }
+      &.active {
+        > .nav-warp {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.iMethod-hide {
+  display: none;
+}
+
+.iMethod-block {
+  display: block;
+}
+
+.iMethod-inline {
+  display: inline;
+}
+
+.iMethod-inline-block {
+  display: inline-block;
+}
+
+.iMethod-no-data {
+  width: 100%;
+  line-height: 30px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.iMethod-toolbar {
+  margin: 5px 10px;
+  font-size: 16px;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+
+#iMethodUser {
+  position: relative;
+  ul {
+    width: 80px;
+    background: #FFFFFF;
+    border: 1px solid #ddd;
+    position: absolute;
+    padding: 5px;
+    right: 0;
+    top: 32px;
+    li {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+}
+
+.iMethod-logo {
+  a{
+    line-height: 1.5;
+    font-size: 34px;
+  }
+}
+
+.list-group-item,form{
+  .row{
+    font-size: 15px;
+    line-height: 1.5;
+    margin-top: 5px;
+  }
+}

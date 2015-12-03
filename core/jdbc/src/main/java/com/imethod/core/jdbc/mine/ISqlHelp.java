@@ -1,7 +1,11 @@
 package com.imethod.core.jdbc.mine;
 
 /**
- * Created by bcaring on 15/7/11.
+ * auth : iMethod
+ * create_at:  15/7/11.
+ * desc:
+ * note:
+ *  1.
  */
 public abstract class ISqlHelp {
 
@@ -14,4 +18,6 @@ public abstract class ISqlHelp {
     public abstract String likeStart(String column);
 
     public abstract String likeEnd(String column);
+
+    public abstract String resoleLoadSql(String sql);
 }
