@@ -102,6 +102,8 @@
 
 
         <mysql.version>5.1.35</mysql.version>
+
+        <persistence.version>1.0.2</persistence.version>
     </properties>
 
 
@@ -636,6 +638,12 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.persistence</groupId>
+                <artifactId>persistence-api</artifactId>
+                <version>${persistence.version}</version>
             </dependency>
 
             <!-- TEST end -->

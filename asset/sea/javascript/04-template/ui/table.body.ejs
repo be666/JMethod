@@ -1,0 +1,25 @@
+<%
+var titles = titles || [];
+var tLength = titles.length;
+var dataList = dataList || [];
+var dLength = dataList.length;
+var pk = pk || 'id';
+for(var i = 0;i < dLength;i++){
+    var data = dataList[i];
+%>
+<tr data-pk="<%= data[pk] || "" %>">
+    <% for(var j = 0;j < tLength;j++){
+        var title = titles[j];
+        var key = title['key'];
+        var render = title['render'];
+        var view = data[key];
+        if (isFunc(render)) {
+            view = render(data, data[key]);
+        }
+    %>
+    <td>
+        <%= view %>
+    </td>
+    <% } %>
+</tr>
+<% } %>

@@ -34,4 +34,9 @@ public class ISqlHelper extends ISqlHelp {
     public String likeEnd(String column) {
         return "%" + column;
     }
+
+    @Override
+    public String resoleLoadSql(String sql) {
+        return null;
+    }
 }

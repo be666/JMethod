@@ -1,13 +1,13 @@
 /**
- * auth : bqxu
+ * auth : iMethod
  * create_at: 15/11/7.
  * desc:
  * note:
  *  1.
  */
 (function ($w, $) {
-    var utils = gxb.utils;
-    $w.gxb._.resize = [];
+    var utils = iMethod.utils;
+    $w.iMethod._.resize = [];
     var resize = {
         push: function (name, func) {
             if (utils.isFunc(name)) {
@@ -15,7 +15,7 @@
                 name = name.name;
             }
             resize.pop(name, func);
-            $w.gxb._.resize.push({
+            $w.iMethod._.resize.push({
                 name: name,
                 func: func
             })
@@ -26,7 +26,7 @@
                 name = name.name;
             }
             if (name != null || utils.isFunc(func)) {
-                var resize = $w.gxb._.resize;
+                var resize = $w.iMethod._.resize;
                 var fl = resize.length;
                 while (fl > 0) {
                     fl--;
@@ -41,9 +41,9 @@
 
 
     };
-    $w.gxb.resize = resize;
+    $w.iMethod.resize = resize;
     $(window).resize(function () {
-        var resize = $w.gxb._.resize;
+        var resize = $w.iMethod._.resize;
         var fl = resize.length;
         while (fl > 0) {
             fl--;

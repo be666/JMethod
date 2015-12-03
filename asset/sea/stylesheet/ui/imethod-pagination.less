@@ -1,0 +1,47 @@
+.iMethod-page {
+  height: 25px;
+  line-height: 25px;
+  vertical-align: middle;
+  text-align: right;
+  ul {
+    list-style: none;
+    display: inline-block;
+    li {
+      float: left;
+      a {
+        line-height: 25px;
+        vertical-align: middle;
+        height: 10px;
+        padding: 6px 12px;
+        margin-left: -1px;
+        color: #337ab7;
+        text-decoration: none;
+        background-color: #fff;
+        border: 1px solid #ddd;
+      }
+      &.active{
+        a {
+          color: #fff;
+          background-color:#337ab7;
+        }
+      }
+    }
+    li:first-child {
+      border-left-width: 1px;
+    }
+  }
+  .iMethod-page-index, .iMethod-page-size {
+    height: 25px;
+    line-height: 25px;
+    display: inline-flex;
+    vertical-align: middle;
+
+  }
+
+  .iMethod-page-size {
+
+    li {
+      margin: 0 5px;
+    }
+  }
+}

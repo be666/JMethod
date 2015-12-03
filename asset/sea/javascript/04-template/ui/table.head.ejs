@@ -1,0 +1,15 @@
+<%
+var titles = titles || [];
+var tLength = titles.length;
+var datas = datas || [];
+var dLength = datas.length;
+%>
+<tr>
+    <% for(var i = 0;i < tLength;i++){
+        var title = titles[i];
+    %>
+    <td>
+        <%= title['name'] %>
+    </td>
+    <% } %>
+</tr>

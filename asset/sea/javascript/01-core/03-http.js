@@ -6,73 +6,76 @@
  *  1.
  */
 (function ($w, $) {
-  $w.gxb._.ajaxs = {
-    _: {},
-    push: function (id, xhr) {
-      $w.gxb._.ajaxs._[id] = xhr;
-    },
-    pop: function (id) {
-      $w.gxb._.ajaxs._[id] = null;
-    },
-    get: function (id) {
-      return $w.gxb._.ajaxs._[id];
-    }
-  };
-  $w.gxb._.ajax = function (url, options) {
-    if (typeof url == "object") {
-      options = url;
-      url = null;
-    }
-    var def = {
-      url: url || options.url || "",
-      type: "get",
-      dateType: "html",
-      data: {}
+    $w.iMethod._.ajaxs = {
+        _: {},
+        push: function (id, xhr) {
+            $w.iMethod._.ajaxs._[id] = xhr;
+        },
+        pop: function (id) {
+            $w.iMethod._.ajaxs._[id] = null;
+        },
+        get: function (id) {
+            return $w.iMethod._.ajaxs._[id];
+        }
     };
-    options = $.extend(def, options);
-    url = options.url;
-    while (url[0] == "/" || url[0] == " ") {
-      url = url.substring(1, url.length);
-    }
+    $w.iMethod._.ajax = function (url, options) {
+        if (typeof url == "object") {
+            options = url;
+            url = null;
+        }
+        var def = {
+            url: url || options.url || "",
+            type: "get",
+            dateType: "html",
+            data: {}
+        };
+        options = $.extend(def, options);
+        url = options.url;
+        while (url[0] == "/" || url[0] == " ") {
+            url = url.substring(1, url.length);
+        }
 
-    if (url.length == 0) {
-      $w.console.log("无效的请求地址");
-      return null;
-    }
-    var seq = $w.gxb.seq();
-    var params = {
-      url: $w.gxb.contextPath + "/" + url,
-      data: options['data'] || {},
-      dateType: options['dateType'] || "html",
-      type: options['type'] || 'get',
-      complete: function (response) {
-        var complete = options['complete'];
-        if (typeof complete == "function") {
-          complete(response)
+        if (url.length == 0) {
+            $w.console.log("无效的请求地址");
+            return null;
         }
-        $w.gxb._.ajaxs.pop(seq);
-      },
-      success: function (response) {
-        var success = options['success'];
-        if (typeof success == "function") {
-          success(response)
-        }
-      },
-      error: function (response) {
-        var error = options['error'];
-        if (typeof error == "function") {
-          error(response)
-        } else {
-          gxb.alert("netError");
-        }
-      }
+        var seq = $w.iMethod.seq();
+        var params = {
+            url: $w.iMethod.contextPath + "/" + url,
+            data: options['data'] || {},
+            dateType: options['dateType'] || "html",
+            type: options['type'] || 'get',
+            complete: function (response) {
+                var complete = options['complete'];
+                if (typeof complete == "function") {
+                    complete(response)
+                }
+                $w.iMethod._.ajaxs.pop(seq);
+            },
+            success: function (response) {
+                var success = options['success'];
+                if (typeof success == "function") {
+                    success(response)
+                }
+            },
+            error: function (response) {
+                var error = options['error'];
+                if (typeof error == "function") {
+                    error(response)
+                } else {
+                    iMethod.error({
+                        title: "提示!",
+                        content: "网络异常！"
+                    });
+                }
+            }
+        };
+        var $ajax = $.ajax(params);
+        return {
+            abort: function () {
+                $ajax.abort();
+            }
+        };
     };
-    var $ajax = $.ajax(params);
-    return {
-      abort: function () {
-        $ajax.abort();
-      }
-    };
-  };
 })(window, jQuery);
 

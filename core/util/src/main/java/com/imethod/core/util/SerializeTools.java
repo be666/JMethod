@@ -7,8 +7,8 @@ import java.io.ObjectOutputStream;
 
 /**
  * serialize object
- * 
- * @author vitem
+ *
+ * @author iMethod
  * @date 2015年10月21日
  */
 public class SerializeTools {
@@ -48,5 +48,5 @@ public class SerializeTools {
         }
         return null;
     }
-    
+
 }

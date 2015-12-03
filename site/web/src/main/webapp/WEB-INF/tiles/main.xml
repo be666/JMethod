@@ -7,9 +7,9 @@
     <!-- empty template begin-->
     <!-- 主模版页  上中下布局 -->
     <definition name="template" template="/WEB-INF/jsp/template/template_main.jsp">
-        <put-attribute name="header" value="/WEB-INF/jsp/template/empty.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/jsp/common/header.jsp"/>
         <put-attribute name="content" value="/WEB-INF/jsp/template/empty.jsp"/>
-        <put-attribute name="footer" value="/WEB-INF/jsp/template/empty.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
     </definition>
 
     <!-- 左右布局-->
@@ -68,41 +68,5 @@
     </definition>
 
     <!-- empty template end-->
-
-
-    <!-- template begin -->
-
-    <!-- 前台 通用 定义-->
-    <definition name="portal" extends="template">
-        <put-attribute name="header" value="/WEB-INF/jsp/common/portal_header.jsp"/>
-        <put-attribute name="bottom" value="/WEB-INF/jsp/common/portal_footer.jsp"/>
-    </definition>
-
-    <!-- 后台 通用定义-->
-    <definition name="console" extends="template">
-        <put-attribute name="title" value="后台管理系统-高校邦"/>
-        <put-attribute name="header" value="/WEB-INF/jsp/common/portal_header.jsp"/>
-        <put-attribute name="bottom" value="/WEB-INF/jsp/common/portal_footer.jsp"/>
-    </definition>
-
-    <definition name="student" extends="template">
-        <put-attribute name="title" value="学习管理系统-高校邦"/>
-        <put-attribute name="header" value="/WEB-INF/jsp/common/portal_header.jsp"/>
-        <put-attribute name="bottom" value="/WEB-INF/jsp/common/portal_footer.jsp"/>
-    </definition>
-
-    <definition name="teacher" extends="template">
-        <put-attribute name="title" value="教学管理系统-高校邦"/>
-        <put-attribute name="header" value="/WEB-INF/jsp/common/portal_header.jsp"/>
-        <put-attribute name="bottom" value="/WEB-INF/jsp/common/portal_footer.jsp"/>
-    </definition>
-
-
-    <definition name="tenant" extends="template">
-        <put-attribute name="title" value="租户管理系统-高校邦"/>
-        <put-attribute name="header" value="/WEB-INF/jsp/common/portal_header.jsp"/>
-        <put-attribute name="bottom" value="/WEB-INF/jsp/common/portal_footer.jsp"/>
-    </definition>
-    <!-- template end -->
 
 </tiles-definitions>

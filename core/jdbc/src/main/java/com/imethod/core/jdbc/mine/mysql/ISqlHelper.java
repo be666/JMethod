@@ -3,9 +3,9 @@ package com.imethod.core.jdbc.mine.mysql;
 import com.imethod.core.jdbc.mine.ISqlHelp;
 
 /**
- *  auth : bqxu
- *  time : 15/7/11
- *  desc :
+ * auth : iMethod
+ * time : 15/7/11
+ * desc :
  */
 public class ISqlHelper extends ISqlHelp {
 
@@ -43,4 +43,10 @@ public class ISqlHelper extends ISqlHelp {
     public String likeEnd(String column) {
         return "%" + column;
     }
+
+    @Override
+    public String resoleLoadSql(String sql) {
+        return sql + " limit 1";
+    }
+
 }

@@ -6,19 +6,17 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * 
- * 
- * @author vitem
+ * @author iMethod
  * @date 2015年10月21日
  */
 public class FileTools {
-	
+
     public static void closeStream(InputStream inputStream) {
         if (inputStream == null) return;
         try {
             inputStream.close();
         } catch (IOException e) {
-        	ExceptionTools.unchecked(e);
+            ExceptionTools.unchecked(e);
         }
     }
 
@@ -30,7 +28,7 @@ public class FileTools {
         try {
             outputStream.close();
         } catch (IOException e) {
-        	ExceptionTools.unchecked(e);
+            ExceptionTools.unchecked(e);
         }
     }
 

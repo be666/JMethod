@@ -1,65 +1,62 @@
-<div class="pager">
-    <% if (pageObj.pageList.length > 0) {
-        var i = 0;
-        var curPage = pageObj.curPage;
-        var totalPages = pageObj.totalPages;
-        var pages = [];
-        if (curPage > 3 && curPage < totalPages - 2) {
-            for (i = -2; i <= 2; i++) {
-                var _c = curPage + i;
-                if (_c >= 0 && _c <= totalPages) {
-                    pages.push(_c);
-                }
-            }
-        } else if (curPage >= totalPages - 4) {
-            for (i = -4; i <= 0; i++) {
-                var _c = totalPages + i;
-                if (_c >= 1 && _c <= totalPages) {
-                    pages.push(_c);
-                }
-            }
-        } else {
-            for (i = 1; i <= 5; i++) {
-                if (i >= 1 && i <= totalPages) {
-                    pages.push(i);
-                }
-            }
-        }
-    %>
-    <ul class="pagination">
-        <% if (curPage != 1) { %>
-        <li>
-            <a href="javascript:void(0)" data-page="<%= curPage - 1 %>">
-                上一页
-            </a>
-        </li>
-        <% } %>
-        <% for (var pg in pages){ %>
-        <% if (pages[pg] == curPage) { %>
-        <li class="active">
-            <a href="javascript:void(0)" data-page="<%= pages[pg] %>"><%= pages[pg] %>
-            </a>
-        </li>
-        <% } else { %>
-        <li>
-            <a href="javascript:void(0)" data-page="<%= pages[pg] %>"><%= pages[pg] %>
-            </a>
-        </li>
-        <% } %>
-        <% } %>
-        <% if (curPage != totalPages) { %>
-        <li>
-            <a href="javascript:void(0)" data-page="<%= curPage + 1 %>">
-                下一页
-            </a>
-        </li>
-        <% } %>
-        <li>
-            <a href="javascript:void(0)" style="color: #7a8a99">
-                共<%= totalPages %> 页
-            </a>
+<%
+var pageIndex = pageIndex || 1;
+var pages = pages || [1];
+var pLenght = pages.length;
+var totalPage = totalPage || 1;
+var pageSize = pageSize || "";
+var sizes = sizes || [20, 50, 100, 500];
+var sLenght = sizes.length;
+%>
+<div class="iMethod-page">
 
-        </li>
-    </ul>
-    <% } %>
+    <div class="iMethod-page-index">
+        <ul class="clearfix">
+            <% if (pageIndex != 1) { %>
+            <li>
+                <a href="javascript:void(0)" data-page="<%= pageIndex - 1 %>">
+                    上一页
+                </a>
+            </li>
+            <% } %>
+            <% for (var i = 0;i < pLenght;i++){
+                var pg = pages[i];
+            %>
+            <li class="<% if(pageIndex == pg){ %>active<% } %>">
+                <a href="javascript:void(0)" data-page="<%= pg %>">
+                    <%= pg %>
+                </a>
+            </li>
+            <% } %>
+            <% if (pageIndex != totalPage ) { %>
+            <li>
+                <a href="javascript:void(0)" data-page="<%= pageIndex + 1 %>">
+                    下一页
+                </a>
+            </li>
+            <% } %>
+            <li>
+                <a href="javascript:void(0)">
+                    共<%= totalPage %> 页
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="iMethod-page-size">
+        每页显示
+        <ul class="clearfix">
+            <% for(var i = 0;i < sLenght;i++){
+                var size = sizes[i];
+            %>
+            <li>
+                <a href="javascript:void(0)"
+                   class="<% if(pageSize == size){ %>active<% } %>"
+                   data-size="<%= size %>">
+                    <%= size %>
+                </a>
+            </li>
+            <% } %>
+        </ul>
+        条
+    </div>
 </div>
