@@ -1,7 +1,7 @@
 package com.imethod.core.jdbc.mine;
 
 
-import com.imethod.core.jdbc.PageMaker;
+import com.imethod.core.bean.PageMaker;
 import com.imethod.core.log.Logger;
 import com.imethod.core.log.LoggerFactory;
 import com.imethod.core.util.BeanTools;

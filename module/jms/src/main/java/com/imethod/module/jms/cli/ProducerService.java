@@ -2,12 +2,9 @@ package com.imethod.module.jms.cli;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
-import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 
-import javax.jms.*;
-import java.util.HashMap;
-import java.util.List;
+import javax.jms.Destination;
 
 /**
  * time : 15/11/8.

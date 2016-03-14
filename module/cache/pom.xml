@@ -7,16 +7,17 @@
     <parent>
         <groupId>com.imethod</groupId>
         <artifactId>parent</artifactId>
-        <version>${imethod.version}</version>
-        <relativePath>../../core/parent/pom.xml</relativePath>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../../parent/pom.xml</relativePath>
     </parent>
-    <artifactId>cache</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <artifactId>module-cache</artifactId>
     <name>cache</name>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
             <groupId>com.imethod</groupId>
-            <artifactId>util</artifactId>
+            <artifactId>core-util</artifactId>
         </dependency>
 
         <dependency>

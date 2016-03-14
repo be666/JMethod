@@ -7,10 +7,10 @@
     <parent>
         <groupId>com.imethod</groupId>
         <artifactId>parent</artifactId>
-        <version>${imethod.version}</version>
-        <relativePath>../parent/pom.xml</relativePath>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../../parent/pom.xml</relativePath>
     </parent>
-    <artifactId>log</artifactId>
+    <artifactId>core-log</artifactId>
     <name>log</name>
     <packaging>jar</packaging>
 

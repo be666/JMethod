@@ -1,6 +1,6 @@
 package com.imethod.module.client.rest;
 
-import com.imethod.core.page.IPage;
+import com.imethod.core.bean.PageMaker;
 
 import java.util.Map;
 
@@ -16,7 +16,7 @@ public class RestResult<T> {
     String message;
     String stateCode;
     Object result;
-    IPage page;
+    PageMaker pageMaker;
     Map<String, Object> request;
 
     public String getMessage() {
@@ -43,12 +43,12 @@ public class RestResult<T> {
         this.result = result;
     }
 
-    public IPage getPage() {
-        return page;
+    public PageMaker getPage() {
+        return pageMaker;
     }
 
-    public void setPage(IPage page) {
-        this.page = page;
+    public void setPage(PageMaker page) {
+        this.pageMaker = page;
     }
 
     public Map<String, Object> getRequest() {
