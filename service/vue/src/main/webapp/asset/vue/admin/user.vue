@@ -8,7 +8,7 @@
     <div class="am-panel-bd">
       <div class="am-btn-toolbar">
         <div class="am-btn-group">
-          <div class="am-btn am-btn-default" v-on:click="link('analysis_info')">
+          <div class="am-btn am-btn-default" v-on:click="link('user-add')">
             新增
           </div>
         </div>
@@ -26,29 +26,30 @@
 
 </style>
 <script type="text/javascript">
-  module.exports = {
-    data: function () {
-
-    },
+  export default {
     methods: {
-      link: function (pathName, params) {
-        var $this = this;
-        $this.$dispatch('link', pathName, params)
+      link(pathName, params) {
+        this.$dispatch('link', pathName, params)
       },
-      optionInfo: function () {
+      optionInfo () {
 
       }
     },
-    ready: function () {
-      var $this = this;
-      $this.$refs.table.dataList = [];
+    ready () {
+      this.$refs.table.dataList = [];
     },
-    created: function (argument) {
+    created (argument) {
 
     },
-    attached: function () {
+    attached () {
       var $this = this;
-      $this.$http.get($this.$tools.resolveUrl("/Users"), function (res, ste, req) {
+      $this.$http.get($this.$tools.resolveUrl("/AuthUsers"),{
+        filter: {
+          where: {
+            state: 1
+          }
+        }
+      }, function (res, ste, req) {
         $this.$refs.table.dataList = res;
       })
     },
@@ -57,32 +58,49 @@
       $this.$refs.table.pk = 'id';
       $this.$refs.table.checkbox = [];
       $this.$refs.table.titleList = [{
-        id: "appToken",
-        text: "token"
+        id: "loginName",
+        text: "登录名"
       }, {
-        id: "siteUrl",
-        text: "站点地址"
+        id: "realName",
+        text: "真实姓名"
       }, {
-        id: "siteName",
-        text: "站点名称"
+        id: "sex",
+        text: "性别",
+        render: function (el, attr, index) {
+          if (attr == 0) {
+            return '男'
+          } else {
+            return '女'
+          }
+        }
+      }, {
+        id: "birthday",
+        text: "出生日期"
+      }, {
+        id: "email",
+        text: "邮箱"
+      }, {
+        id: "telephone",
+        text: "电话"
       }, {
         id: "enable",
         text: "状态",
         render: function (el, attr, index) {
           if (attr == 0) {
-            return "禁用"
-          } else if (attr == 1) {
-            return "启用"
+            return '禁用'
+          } else {
+            return '启用'
           }
         }
       }];
       $this.$refs.table.optionList = [{
+        className: 'am-btn-sm',
         id: "in",
         render: function (el, index) {
           if (el.enable == 0) {
-            return "启用"
+            return "启用";
           } else {
-            return "禁用"
+            return "禁用";
           }
         }
       }];

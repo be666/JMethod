@@ -10,11 +10,12 @@ let {valid} = require('./auth');
 Vue.config.debug = true;
 
 Vue.use(function (vue) {
+  vue.prototype.$config = {
+    module: 'admin'
+  };
   vue.prototype.$tools = require('./tools');
   vue.prototype.$auth = require('./auth');
-  vue.prototype.$config = {
-    module: 'home'
-  }
+  vue.prototype.$dialog = require('./plugin/dialog.js');
 });
 
 
@@ -32,6 +33,7 @@ Vue.component('i_search_single', require("./component/select-single.vue"));
 Vue.component('i_table', require("./component/table.vue"));
 Vue.component('i_radio', require("./component/radio.vue"));
 //directive
+
 
 //filter
 
@@ -61,28 +63,48 @@ router.map({
   '/': {
     name: "root",
     component: require("./layout/root.vue"),
+    admin: true,
     subRoutes: {
       "/": {
         component: require("./layout/app.vue"),
         subRoutes: {
-          "me": {
-            name: "me",
-            component: require("./portal/me.vue")
-          }
-          ,
           "home": {
             name: "home",
-            component: require("./portal/home.vue")
-          }
+            component: require("./admin/index.vue")
+          },
+          "user": {
+            name: "user",
+            component: require("./admin/user.vue")
+          },
+          "user/insert": {
+            name: "user-add",
+            component: require("./admin/user-insert.vue")
+          },
+          "app": {
+            name: "app",
+            component: require("./admin/app.vue")
+          },
+          "app/insert": {
+            name: "app-add",
+            component: require("./admin/app-insert.vue")
+          },
+          "app/:appId/user": {
+            name: "app-user",
+            component: require("./admin/app-user.vue")
+          },
+          "app/:appId/group": {
+            name: "app-group",
+            component: require("./admin/app-group.vue")
+          },
+          "app/:appId/group/insert": {
+            name: "app-group-add",
+            component: require("./admin/app-group-insert.vue")
+          },
+          "app/:appId/group/:groupId/user": {
+            name: "app-group-user",
+            component: require("./admin/app-group-user.vue")
+          },
         }
-      },
-      "login": {
-        name: "login",
-        component: require("./sys/login.vue")
-      },
-      "sign": {
-        name: "sign",
-        component: require("./sys/sign.vue")
       }
     },
     "*": {
@@ -103,12 +125,14 @@ router.beforeEach(function (transition) {
     transition.next()
   } else {
     valid(transition.to.router.app, function () {
-
       transition.next();
     }, function () {
-      transition.redirect("/login")
+      window.location.href = "/";
     });
   }
 });
 
 router.start(App, 'body');
+
+
+

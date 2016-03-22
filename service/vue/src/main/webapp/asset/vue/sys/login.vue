@@ -17,15 +17,7 @@
           <input class="am-radius" required="required" type="password" v-model="password" id="passWord"/>
         </div>
         <div class='am-form-group'>
-          <label for="remember-me">
-            <input id="remember-me" type="checkbox" v-model="autoLogin">
-            记住密码
-          </label>
-        </div>
-        <div class='am-form-group'>
           <input type="submit" name="commit" value="登陆"
-                 class="am-btn am-btn-block am-btn-primary am-radius"/>
-          <input type="button" name="sign" value="注册" v-link="{name:'sign'}"
                  class="am-btn am-btn-block am-btn-primary am-radius"/>
         </div>
       </form>

@@ -10,11 +10,11 @@
             v-on:submit.prevent="submitForm"
             v-on:reset.prevent="reset">
         <fieldset>
-          <legend>个人信息维护</legend>
+          <legend>用户信息</legend>
           <div class="am-form-group">
             <label class="am-u-sm-3 am-form-label">登陆名</label>
             <div class="am-u-sm-9 am-u-end ">
-              <input type="text" v-model="userInfo.loginName" readonly placeholder="">
+              <input type="text" v-model="userInfo.loginName" required placeholder="">
             </div>
           </div>
           <div class="am-form-group">
@@ -36,6 +36,18 @@
             </div>
           </div>
           <div class="am-form-group">
+            <label class="am-u-sm-3 am-form-label">出生日期</label>
+            <div class="am-u-sm-9 am-u-end ">
+              <input type="date" v-model="userInfo.birthday" required placeholder="">
+            </div>
+          </div>
+          <div class="am-form-group">
+            <label class="am-u-sm-3 am-form-label">联系地址</label>
+            <div class="am-u-sm-9 am-u-end ">
+              <input type="text" v-model="userInfo.address" required placeholder="">
+            </div>
+          </div>
+          <div class="am-form-group">
             <label class="am-u-sm-3 am-form-label">性别</label>
             <div class="am-u-sm-9 am-u-end ">
               <i_radio
@@ -46,7 +58,6 @@
               ></i_radio>
             </div>
           </div>
-
           <div class="am-form-group">
             <div class="am-u-sm-10 am-u-sm-offset-2">
               <button type="submit" class="am-btn am-btn-default">提交</button>

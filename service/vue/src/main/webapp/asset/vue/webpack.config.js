@@ -1,12 +1,18 @@
 var webpack = require('webpack');
+var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-  entry: './src/main.js',
+  entry: {
+    portal: path.resolve(__dirname, 'main.js'),
+    admin: path.resolve(__dirname, 'admin.js'),
+    'auth-login': path.resolve(__dirname, 'auth-login.js'),
+    'auth-sign': path.resolve(__dirname, 'auth-sign.js')
+  },
   output: {
-    path: './dist',
+    path: path.resolve(__dirname, "dist"),
     publicPath: '/dist/',
-    filename: 'build.js'
+    filename: '[name].js'
   },
   module: {
     //preLoaders: [{
@@ -24,7 +30,9 @@ module.exports = {
         // edit this for additional asset file types
         test: /\.(png|jpg|gif)$/,
         loader: 'file?name=[name].[ext]?[hash]'
-      }
+      },
+      {test: /\.less$/, loader: "style!css!less"},
+      {test: /\.css$/, loader: "style!css"}
     ]
   },
   vue: {
@@ -39,7 +47,8 @@ module.exports = {
     plugins: ['transform-runtime']
   },
   plugins: [
-    new ExtractTextPlugin("style.css")
+    new webpack.optimize.CommonsChunkPlugin('common.js'),
+    new ExtractTextPlugin("[name].css")
   ]
 };
 

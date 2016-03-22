@@ -1,5 +1,5 @@
 <template>
-  <i_header v-bind:user-info="userInfo"></i_header>
+  <component :is="currentView"></component>
   <section>
     <router-view></router-view>
   </section>
@@ -7,11 +7,17 @@
 <script>
   export default  {
     components: {
-      'i_header': require("./header.vue")
+      home: require("./header_portal.vue"),
+      admin: require("./header_admin.vue")
     },
     data () {
+      let currentView = 'home';
+      if (this.$config.module=='admin') {
+        currentView = 'admin';
+      }
       return {
-        userInfo: this.userInfo
+        userInfo: this.userInfo,
+        currentView: currentView
       }
     },
     route: {

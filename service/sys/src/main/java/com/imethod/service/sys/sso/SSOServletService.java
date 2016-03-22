@@ -6,6 +6,7 @@ import com.imethod.service.sys.domain.OsTicket;
 import com.imethod.service.record.service.LogService;
 import com.imethod.service.sys.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
  * note:
  * 1.
  */
+@Service
 public class SSOServletService implements SSOService {
 
     private static final String USER_TICKET = "USER_TICKET";
