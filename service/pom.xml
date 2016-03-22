@@ -21,6 +21,5 @@
         <module>form</module>
         <module>angular</module>
         <module>sea</module>
-        <module>vue</module>
     </modules>
 </project>

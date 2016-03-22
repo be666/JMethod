@@ -59,29 +59,6 @@
             <artifactId>module-schedule</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.imethod</groupId>
-            <artifactId>service-sea</artifactId>
-            <type>war</type>
-        </dependency>
-        <dependency>
-            <groupId>com.imethod</groupId>
-            <artifactId>service-sea</artifactId>
-            <type>warpath</type>
-        </dependency>
-
-        <dependency>
-            <groupId>com.imethod</groupId>
-            <artifactId>service-vue</artifactId>
-            <type>war</type>
-        </dependency>
-
-        <dependency>
-            <groupId>com.imethod</groupId>
-            <artifactId>service-vue</artifactId>
-            <type>warpath</type>
-        </dependency>
-
         <!-- aop -->
         <dependency>
             <groupId>org.aspectj</groupId>

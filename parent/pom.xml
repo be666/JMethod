@@ -200,33 +200,6 @@
                 <type>warpath</type>
             </dependency>
 
-
-            <dependency>
-                <groupId>com.imethod</groupId>
-                <artifactId>service-sea</artifactId>
-                <version>${com.imethod.version}</version>
-                <type>war</type>
-            </dependency>
-            <dependency>
-                <groupId>com.imethod</groupId>
-                <artifactId>service-sea</artifactId>
-                <version>${com.imethod.version}</version>
-                <type>warpath</type>
-            </dependency>
-
-            <dependency>
-                <groupId>com.imethod</groupId>
-                <artifactId>service-vue</artifactId>
-                <version>${com.imethod.version}</version>
-                <type>war</type>
-            </dependency>
-            <dependency>
-                <groupId>com.imethod</groupId>
-                <artifactId>service-vue</artifactId>
-                <version>${com.imethod.version}</version>
-                <type>warpath</type>
-            </dependency>
-
             <!-- spring-->
             <dependency>
                 <groupId>org.springframework</groupId>
