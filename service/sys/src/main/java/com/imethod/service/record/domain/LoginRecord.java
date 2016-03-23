@@ -3,25 +3,23 @@ package com.imethod.service.record.domain;
 
 import com.imethod.core.bean.base.BasicEntity;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-/**
- * auth : iMethod
- * create_at:  15/12/1.
- * desc:
- * note:
- * 1.
- */
+
 @Entity
-@Table(name = "login_record")
 public class LoginRecord extends BasicEntity {
-    private static final long serialVersionUID = -9023797421894961643L;
+
+    private static final long serialVersionUID = -125663240626405030L;
     private Long loginId;
     private Long userId;
     private String ip;
 
+
     @Id
-    @Column(name = "login_id", nullable = false)
+    @Column(name = "login_id")
     public Long getLoginId() {
         return loginId;
     }
@@ -31,7 +29,7 @@ public class LoginRecord extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "user_id", nullable = true)
+    @Column(name = "user_id")
     public Long getUserId() {
         return userId;
     }
@@ -41,7 +39,7 @@ public class LoginRecord extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "ip", nullable = true, length = 45)
+    @Column(name = "ip")
     public String getIp() {
         return ip;
     }
@@ -49,4 +47,5 @@ public class LoginRecord extends BasicEntity {
     public void setIp(String ip) {
         this.ip = ip;
     }
+
 }

@@ -103,7 +103,9 @@
 
         <mysql.version>5.1.35</mysql.version>
 
+        <derby.version>10.12.1.1</derby.version>
         <persistence.version>1.0.2</persistence.version>
+        <eclipse.persistence.version>2.6.3-M1</eclipse.persistence.version>
     </properties>
 
 
@@ -677,6 +679,19 @@
                 <artifactId>persistence-api</artifactId>
                 <version>${persistence.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.eclipse.persistence</groupId>
+                <artifactId>org.eclipse.persistence.jpa</artifactId>
+                <version>${eclipse.persistence.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.derby</groupId>
+                <artifactId>derby</artifactId>
+                <version>${derby.version}</version>
+            </dependency>
+
 
             <!-- TEST end -->
 

@@ -1,12 +1,12 @@
 package com.imethod.service.sys.auth;
 
 import com.imethod.core.util.StringTools;
-import com.imethod.service.sys.sso.SSOService;
-import com.imethod.service.sys.domain.User;
 import com.imethod.service.record.domain.VisitRecord;
-import com.imethod.service.record.service.LogService;
+import com.imethod.service.record.service.VisitRecordService;
+import com.imethod.service.sys.domain.User;
 import com.imethod.service.sys.service.PermissionService;
 import com.imethod.service.sys.service.UserService;
+import com.imethod.service.sys.sso.SSOService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.support.ResourceHolder;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -32,7 +32,7 @@ public class PermissionInterceptor extends HandlerInterceptorAdapter {
     private PermissionService permissionService;
 
     @Autowired
-    private LogService logService;
+    private VisitRecordService visitRecordService;
 
     @Autowired
     private UserService userService;
@@ -123,7 +123,7 @@ public class PermissionInterceptor extends HandlerInterceptorAdapter {
             VisitRecord visitRecord = new VisitRecord();
             visitRecord.setVisitUrl(request.getRequestURI());
             visitRecord.setUserId(UserContent.getAuthUser().getUserId());
-            logService.insertVisit(visitRecord);
+            visitRecordService.insert(visitRecord);
         }
         restUserContent();
     }

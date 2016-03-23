@@ -1,28 +1,25 @@
 package com.imethod.service.record.domain;
 
 
-
 import com.imethod.core.bean.base.BasicEntity;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-/**
- * auth : iMethod
- * create_at:  15/12/1.
- * desc:
- * note:
- *  1.
- */
+
 @Entity
-@Table(name = "visit_record")
 public class VisitRecord extends BasicEntity {
-    private static final long serialVersionUID = -3850045348989223747L;
+
+    private static final long serialVersionUID = -252612987376970340L;
     private Long visitRecordId;
-    private Long userId;
     private String visitUrl;
+    private Long userId;
+
 
     @Id
-    @Column(name = "visit_record_id", nullable = false)
+    @Column(name = "visit_record_id")
     public Long getVisitRecordId() {
         return visitRecordId;
     }
@@ -32,7 +29,7 @@ public class VisitRecord extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "visit_url", nullable = true)
+    @Column(name = "visit_url")
     public String getVisitUrl() {
         return visitUrl;
     }
@@ -42,7 +39,7 @@ public class VisitRecord extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "user_id", nullable = true)
+    @Column(name = "user_id")
     public Long getUserId() {
         return userId;
     }

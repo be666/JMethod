@@ -1,7 +1,6 @@
 package com.imethod.service.sys.domain;
 
 
-
 import com.imethod.core.bean.base.BasicEntity;
 
 import javax.persistence.Basic;
@@ -9,25 +8,20 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-/**
- * time : 15/11/14.
- * auth : iMethod
- * desc :
- * tips :
- * 1.
- */
+
 @Entity
 public class Menu extends BasicEntity {
-    private static final long serialVersionUID = -6363174120526501580L;
+
+    private static final long serialVersionUID = -320104033778464500L;
     private Long menuId;
     private String menuName;
     private Integer menuType;
-    private Integer menuPid;
+    private Long menuPid;
     private String content;
-    private Integer state;
+
 
     @Id
-    @Column(name = "menu_id", nullable = false, insertable = true, updatable = true)
+    @Column(name = "menu_id")
     public Long getMenuId() {
         return menuId;
     }
@@ -37,7 +31,7 @@ public class Menu extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "menu_name", nullable = true, insertable = true, updatable = true, length = 45)
+    @Column(name = "menu_name")
     public String getMenuName() {
         return menuName;
     }
@@ -47,7 +41,7 @@ public class Menu extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "menu_type", nullable = true, insertable = true, updatable = true)
+    @Column(name = "menu_type")
     public Integer getMenuType() {
         return menuType;
     }
@@ -57,33 +51,23 @@ public class Menu extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "menu_pid", nullable = true, insertable = true, updatable = true)
-    public Integer getMeunPid() {
+    @Column(name = "menu_pid")
+    public Long getMenuPid() {
         return menuPid;
     }
 
-    public void setMeunPid(Integer menuPid) {
+    public void setMenuPid(Long menuPid) {
         this.menuPid = menuPid;
     }
 
     @Basic
-    @Column(name = "content", nullable = true, insertable = true, updatable = true)
+    @Column(name = "content")
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    @Basic
-    @Column(name = "state", nullable = true, insertable = true, updatable = true)
-    public Integer getState() {
-        return state;
-    }
-
-    public void setState(Integer state) {
-        this.state = state;
     }
 
 }

@@ -1,9 +1,9 @@
-package com.imethod.service.code.dao;
+package com.imethod.service.sys.dao;
 
 
 import com.imethod.core.bean.PageMaker;
 import com.imethod.core.jdbc.mine.IBaseDao;
-import com.imethod.service.code.domain.Code;
+import com.imethod.service.sys.domain.Rule;
 import org.springframework.stereotype.Repository;
 
 import java.lang.reflect.InvocationTargetException;
@@ -12,27 +12,27 @@ import java.util.Map;
 
 
 @Repository
-public class CodeDao extends IBaseDao {
+public class RuleDao extends IBaseDao {
 
 
-    public Code loadById(Long codeId) {
+    public Rule loadById(Long ruleId) {
         Map<String, Object> map = new HashMap<>();
-        map.put("code_id", codeId);
-        Code code = null;
+        map.put("rule_id", ruleId);
+        Rule rule = null;
         try {
-            code = load(Code.class, map);
+            rule = load(Rule.class, map);
         } catch (IllegalAccessException | InstantiationException | InvocationTargetException e) {
             e.printStackTrace();
         }
-        return code;
+        return rule;
     }
 
 
-    String SQL_LIST_CODE = "select * from code where state = 1 ";
+    String SQL_LIST_RULE = "select * from rule where state = 1 ";
 
 
     public PageMaker list(Long pageIndex, Long pageSize) {
-        return this.queryPageList(SQL_LIST_CODE, pageIndex, pageSize, new HashMap<>());
+        return this.queryPageList(SQL_LIST_RULE, pageIndex, pageSize, new HashMap<>());
     }
 
 

@@ -1,38 +1,35 @@
 package com.imethod.service.sys.domain;
 
 
-
 import com.imethod.core.bean.base.BasicEntity;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-/**
- * auth : iMethod
- * create_at:  15/12/1.
- * desc:
- * note:
- * 1.
- */
+
 @Entity
-@Table(name = "os_user")
 public class OsUser extends BasicEntity {
-    private static final long serialVersionUID = 8745717622447652338L;
-    private Long OsUserId;
+
+    private static final long serialVersionUID = -855376119682550600L;
+    private Long osUserId;
     private Long userId;
     private String password;
 
+
     @Id
-    @Column(name = "os_user_id", nullable = false)
+    @Column(name = "os_user_id")
     public Long getOsUserId() {
-        return OsUserId;
+        return osUserId;
     }
 
     public void setOsUserId(Long osUserId) {
-        OsUserId = osUserId;
+        this.osUserId = osUserId;
     }
 
     @Basic
-    @Column(name = "user_id", nullable = true)
+    @Column(name = "user_id")
     public Long getUserId() {
         return userId;
     }
@@ -42,7 +39,7 @@ public class OsUser extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "password", nullable = true, length = 45)
+    @Column(name = "password")
     public String getPassword() {
         return password;
     }
@@ -50,4 +47,5 @@ public class OsUser extends BasicEntity {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

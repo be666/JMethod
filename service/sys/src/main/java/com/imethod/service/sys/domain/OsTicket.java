@@ -1,29 +1,27 @@
 package com.imethod.service.sys.domain;
 
 
-
 import com.imethod.core.bean.base.BasicEntity;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Date;
 
-/**
- * auth : iMethod
- * create_at:  15/12/1.
- * desc:
- * note:
- *  1.
- */
+
 @Entity
-@Table(name = "os_ticket")
 public class OsTicket extends BasicEntity {
-    private static final long serialVersionUID = 7570379425280710740L;
+
+    private static final long serialVersionUID = -987051719364007500L;
     private Long ticketId;
-    private Long userId;
     private String ticketInfo;
-    private Integer state;
+    private Long userId;
+    private Date endTime;
+
 
     @Id
-    @Column(name = "ticket_id", nullable = false)
+    @Column(name = "ticket_id")
     public Long getTicketId() {
         return ticketId;
     }
@@ -33,7 +31,7 @@ public class OsTicket extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "ticket_info", nullable = true, length = 45)
+    @Column(name = "ticket_info")
     public String getTicketInfo() {
         return ticketInfo;
     }
@@ -43,7 +41,7 @@ public class OsTicket extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "user_id", nullable = true, length = 45)
+    @Column(name = "user_id")
     public Long getUserId() {
         return userId;
     }
@@ -53,12 +51,13 @@ public class OsTicket extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "state", nullable = true, length = 45)
-    public Integer getState() {
-        return state;
+    @Column(name = "end_time")
+    public Date getEndTime() {
+        return endTime;
     }
 
-    public void setState(Integer state) {
-        this.state = state;
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
+
 }

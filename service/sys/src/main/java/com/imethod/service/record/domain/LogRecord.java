@@ -9,25 +9,21 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
 
-/**
- * time : 15/11/14.
- * auth : iMethod
- * desc :
- * tips :
- * 1.
- */
+
 @Entity
 public class LogRecord extends BasicEntity {
-    private static final long serialVersionUID = -7327277804918445497L;
+
+    private static final long serialVersionUID = -538145315727090100L;
     private Long logId;
     private Long userId;
     private Integer actionType;
     private String requestBody;
     private Date time;
-    private Integer state;
+    private Date updateId;
+
 
     @Id
-    @Column(name = "log_id", nullable = false, insertable = true, updatable = true)
+    @Column(name = "log_id")
     public Long getLogId() {
         return logId;
     }
@@ -37,7 +33,7 @@ public class LogRecord extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "user_id", nullable = true, insertable = true, updatable = true)
+    @Column(name = "user_id")
     public Long getUserId() {
         return userId;
     }
@@ -47,7 +43,7 @@ public class LogRecord extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "action_type", nullable = true, insertable = true, updatable = true)
+    @Column(name = "action_type")
     public Integer getActionType() {
         return actionType;
     }
@@ -57,7 +53,7 @@ public class LogRecord extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "request_body", nullable = true, insertable = true, updatable = true, length = 65535)
+    @Column(name = "request_body")
     public String getRequestBody() {
         return requestBody;
     }
@@ -67,7 +63,7 @@ public class LogRecord extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "time", nullable = true, insertable = true, updatable = true)
+    @Column(name = "time")
     public Date getTime() {
         return time;
     }
@@ -77,13 +73,13 @@ public class LogRecord extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "state", nullable = true, insertable = true, updatable = true)
-    public Integer getState() {
-        return state;
+    @Column(name = "update_id")
+    public Date getUpdateId() {
+        return updateId;
     }
 
-    public void setState(Integer state) {
-        this.state = state;
+    public void setUpdateId(Date updateId) {
+        this.updateId = updateId;
     }
 
 }

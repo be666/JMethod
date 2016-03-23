@@ -1,5 +1,7 @@
 package com.imethod.core.jdbc.mine;
 
+import com.imethod.core.bean.base.BasicEntity;
+import com.imethod.core.util.DateTools;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 /**
@@ -17,13 +19,16 @@ public class IBaseDao extends IJdbcTempBaseSupport {
 
 
     @Override
-    protected <T> void insertWarp(T object) {
-
+    protected <T extends BasicEntity> void insertWarp(T object) {
+        if (object.getState() == null) {
+            object.setState(1);
+        }
+        object.setCreateAt(DateTools.getCurrentDateTime());
     }
 
     @Override
-    protected <T> void updateWarp(T object) {
-
+    protected <T extends BasicEntity> void updateWarp(T object) {
+        object.setUpdateAt(DateTools.getCurrentDateTime());
     }
 
     public NamedParameterJdbcTemplate getNamedParameterJdbcTemplate() {

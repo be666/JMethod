@@ -10,28 +10,39 @@ import java.util.Date;
  * create_at:  15/11/30.
  * desc:
  * note:
- *  1.
+ * 1.
  */
 public class BasicEntity implements Serializable {
 
     private static final long serialVersionUID = 2660453599505808785L;
-    private Integer creatorId;
+    private Integer state;
+    private Long creatorId;
     private Date createAt;
-    private Integer updaterId;
+    private Long updaterId;
     private Date updateAt;
 
     @Basic
-    @Column(name = "creator_id", nullable = true, insertable = true, updatable = true)
-    public Integer getCreatorId() {
+    @Column(name = "state")
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
+
+    @Basic
+    @Column(name = "creator_id")
+    public Long getCreatorId() {
         return creatorId;
     }
 
-    public void setCreatorId(Integer creatorId) {
+    public void setCreatorId(Long creatorId) {
         this.creatorId = creatorId;
     }
 
     @Basic
-    @Column(name = "create_at", nullable = true, insertable = true, updatable = true)
+    @Column(name = "create_at")
     public Date getCreateAt() {
         return createAt;
     }
@@ -41,17 +52,17 @@ public class BasicEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "updater_id", nullable = true, insertable = true, updatable = true)
-    public Integer getUpdaterId() {
+    @Column(name = "updater_id")
+    public Long getUpdaterId() {
         return updaterId;
     }
 
-    public void setUpdaterId(Integer updaterId) {
+    public void setUpdaterId(Long updaterId) {
         this.updaterId = updaterId;
     }
 
     @Basic
-    @Column(name = "update_at", nullable = true, insertable = true, updatable = true)
+    @Column(name = "update_at")
     public Date getUpdateAt() {
         return updateAt;
     }
@@ -59,4 +70,5 @@ public class BasicEntity implements Serializable {
     public void setUpdateAt(Date updateAt) {
         this.updateAt = updateAt;
     }
+
 }

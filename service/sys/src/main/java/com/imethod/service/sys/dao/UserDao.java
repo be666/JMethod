@@ -1,5 +1,6 @@
 package com.imethod.service.sys.dao;
 
+
 import com.imethod.core.bean.PageMaker;
 import com.imethod.core.jdbc.mine.IBaseDao;
 import com.imethod.core.util.StringTools;
@@ -10,13 +11,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * time : 15/11/13.
- * auth :
- * desc :
- * tips :
- * 1.
- */
+
 @Repository
 public class UserDao extends IBaseDao {
 
@@ -33,7 +28,13 @@ public class UserDao extends IBaseDao {
         return user;
     }
 
+
     String SQL_LIST_USER = "select * from user where state = 1 ";
+
+    public PageMaker list(Long pageIndex, Long pageSize) {
+        return this.queryPageList(SQL_LIST_USER, pageIndex, pageSize, new HashMap<>());
+    }
+
 
     public PageMaker listUser(String query, Long pageIndex, Long pageSize) {
         Map<String, Object> map = new HashMap<>();
@@ -47,15 +48,4 @@ public class UserDao extends IBaseDao {
         return this.queryPageList(buffer.toString(), pageIndex, pageSize, map);
     }
 
-    public PageMaker listOrgUser(String orgId, String query, Long pageIndex, Long pageSize) {
-        Map<String, Object> map = new HashMap<>();
-        StringBuffer buffer = new StringBuffer();
-        buffer.append(SQL_LIST_USER).append(" and org_id=:orgId ");
-        map.put("orgId", orgId);
-        if (StringTools.isNotEmpty(query)) {
-            buffer.append(" and ( user_name like :query or mobile like :query or email like :query) ");
-            map.put("query", getISqlHelp().like(query));
-        }
-        return this.queryPageList(buffer.toString(), pageIndex, pageSize, map);
-    }
 }

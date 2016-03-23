@@ -1,5 +1,6 @@
 package com.imethod.service.code.domain;
 
+
 import com.imethod.core.bean.base.BasicEntity;
 
 import javax.persistence.Basic;
@@ -7,27 +8,22 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-/**
- * time : 15/11/14.
- * auth : iMethod
- * desc :
- * tips :
- * 1.
- */
+
 @Entity
 public class Code extends BasicEntity {
-    private static final long serialVersionUID = -4009117757820710358L;
+
+    private static final long serialVersionUID = -135695253643789310L;
     private Long codeId;
     private String codeType;
     private Integer levelType;
     private Integer code;
     private String codeName;
-    private Integer parentId;
-    private Integer state;
+    private Long parentId;
     private String codeEnName;
 
+
     @Id
-    @Column(name = "code_id", nullable = false, insertable = true, updatable = true)
+    @Column(name = "code_id")
     public Long getCodeId() {
         return codeId;
     }
@@ -37,7 +33,7 @@ public class Code extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "code_type", nullable = true, insertable = true, updatable = true, length = 20)
+    @Column(name = "code_type")
     public String getCodeType() {
         return codeType;
     }
@@ -47,7 +43,7 @@ public class Code extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "level_type", nullable = true, insertable = true, updatable = true)
+    @Column(name = "level_type")
     public Integer getLevelType() {
         return levelType;
     }
@@ -57,7 +53,7 @@ public class Code extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "code", nullable = true, insertable = true, updatable = true, length = 20)
+    @Column(name = "code")
     public Integer getCode() {
         return code;
     }
@@ -67,7 +63,7 @@ public class Code extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "code_name", nullable = true, insertable = true, updatable = true, length = 100)
+    @Column(name = "code_name")
     public String getCodeName() {
         return codeName;
     }
@@ -77,27 +73,17 @@ public class Code extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "parent_id", nullable = true, insertable = true, updatable = true)
-    public Integer getParentId() {
+    @Column(name = "parent_id")
+    public Long getParentId() {
         return parentId;
     }
 
-    public void setParentId(Integer parentId) {
+    public void setParentId(Long parentId) {
         this.parentId = parentId;
     }
 
     @Basic
-    @Column(name = "state", nullable = true, insertable = true, updatable = true)
-    public Integer getState() {
-        return state;
-    }
-
-    public void setState(Integer state) {
-        this.state = state;
-    }
-
-    @Basic
-    @Column(name = "code_en_name", nullable = true, length = 100)
+    @Column(name = "code_en_name")
     public String getCodeEnName() {
         return codeEnName;
     }
@@ -105,4 +91,5 @@ public class Code extends BasicEntity {
     public void setCodeEnName(String codeEnName) {
         this.codeEnName = codeEnName;
     }
+
 }

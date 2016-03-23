@@ -1,9 +1,9 @@
-package com.imethod.service.code.dao;
+package com.imethod.service.sys.dao;
 
 
 import com.imethod.core.bean.PageMaker;
 import com.imethod.core.jdbc.mine.IBaseDao;
-import com.imethod.service.code.domain.Code;
+import com.imethod.service.sys.domain.OsTicket;
 import org.springframework.stereotype.Repository;
 
 import java.lang.reflect.InvocationTargetException;
@@ -12,27 +12,27 @@ import java.util.Map;
 
 
 @Repository
-public class CodeDao extends IBaseDao {
+public class OsTicketDao extends IBaseDao {
 
 
-    public Code loadById(Long codeId) {
+    public OsTicket loadById(Long ticketId) {
         Map<String, Object> map = new HashMap<>();
-        map.put("code_id", codeId);
-        Code code = null;
+        map.put("ticket_id", ticketId);
+        OsTicket osTicket = null;
         try {
-            code = load(Code.class, map);
+            osTicket = load(OsTicket.class, map);
         } catch (IllegalAccessException | InstantiationException | InvocationTargetException e) {
             e.printStackTrace();
         }
-        return code;
+        return osTicket;
     }
 
 
-    String SQL_LIST_CODE = "select * from code where state = 1 ";
+    String SQL_LIST_OSTICKET = "select * from os_ticket where state = 1 ";
 
 
     public PageMaker list(Long pageIndex, Long pageSize) {
-        return this.queryPageList(SQL_LIST_CODE, pageIndex, pageSize, new HashMap<>());
+        return this.queryPageList(SQL_LIST_OSTICKET, pageIndex, pageSize, new HashMap<>());
     }
 
 

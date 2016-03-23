@@ -1,7 +1,6 @@
 package com.imethod.service.sys.domain;
 
 
-
 import com.imethod.core.bean.base.BasicEntity;
 
 import javax.persistence.Basic;
@@ -9,23 +8,18 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-/**
- * time : 15/11/14.
- * auth : iMethod
- * desc :
- * tips :
- * 1.
- */
+
 @Entity
 public class Rule extends BasicEntity {
-    private static final long serialVersionUID = 8680787831107635768L;
+
+    private static final long serialVersionUID = -814875189966549800L;
     private Long ruleId;
     private Long menuId;
     private Long userId;
-    private Integer state;
+
 
     @Id
-    @Column(name = "rule_id", nullable = false, insertable = true, updatable = true)
+    @Column(name = "rule_id")
     public Long getRuleId() {
         return ruleId;
     }
@@ -35,7 +29,7 @@ public class Rule extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "menu_id", nullable = true, insertable = true, updatable = true)
+    @Column(name = "menu_id")
     public Long getMenuId() {
         return menuId;
     }
@@ -45,23 +39,13 @@ public class Rule extends BasicEntity {
     }
 
     @Basic
-    @Column(name = "user_id", nullable = true, insertable = true, updatable = true)
+    @Column(name = "user_id")
     public Long getUserId() {
         return userId;
     }
 
     public void setUserId(Long userId) {
         this.userId = userId;
-    }
-
-    @Basic
-    @Column(name = "state", nullable = true, insertable = true, updatable = true)
-    public Integer getState() {
-        return state;
-    }
-
-    public void setState(Integer state) {
-        this.state = state;
     }
 
 }

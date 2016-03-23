@@ -1,12 +1,12 @@
-package com.imethod.service.code.service;
+package com.imethod.service.record.service;
 
 
 import com.imethod.core.bean.PageMaker;
 import com.imethod.core.log.Logger;
 import com.imethod.core.log.LoggerFactory;
 import com.imethod.core.util.ExceptionTools;
-import com.imethod.service.code.dao.CodeDao;
-import com.imethod.service.code.domain.Code;
+import com.imethod.service.record.dao.LogRecordDao;
+import com.imethod.service.record.domain.LogRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,24 +14,24 @@ import java.lang.reflect.InvocationTargetException;
 
 
 @Service
-public class CodeService {
+public class LogRecordService {
 
 
-    Logger logger = LoggerFactory.getLogger(CodeService.class);
+    Logger logger = LoggerFactory.getLogger(LogRecordService.class);
 
 
     @Autowired
-    private CodeDao codeDao;
+    private LogRecordDao logRecordDao;
 
 
-    public void insert(Code code) {
-        codeDao.insert(code);
+    public void insert(LogRecord logRecord) {
+        logRecordDao.insert(logRecord);
     }
 
 
-    public void update(Code code) {
+    public void update(LogRecord logRecord) {
         try {
-            codeDao.update(code);
+            logRecordDao.update(logRecord);
         } catch (IllegalAccessException | InvocationTargetException e) {
             logger.error(e.getMessage());
             ExceptionTools.unchecked(e);
@@ -40,12 +40,12 @@ public class CodeService {
 
 
     public PageMaker list(Long pageIndex, Long pageSize) {
-        return codeDao.list(pageIndex, pageSize);
+        return logRecordDao.list(pageIndex, pageSize);
     }
 
 
-    public Code loadById(Long codeId) {
-        return codeDao.loadById(codeId);
+    public LogRecord loadById(Long logId) {
+        return logRecordDao.loadById(logId);
     }
 
 

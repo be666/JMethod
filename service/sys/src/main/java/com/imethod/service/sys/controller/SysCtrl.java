@@ -1,11 +1,11 @@
-package com.imethod.service.code.controller;
+package com.imethod.service.sys.controller;
 
 
 import org.springframework.stereotype.Controller;
 
 
 @Controller
-public class CodeCtrl {
+public class SysCtrl {
 
 
 

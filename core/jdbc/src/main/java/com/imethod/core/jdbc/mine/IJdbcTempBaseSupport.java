@@ -2,6 +2,7 @@ package com.imethod.core.jdbc.mine;
 
 
 import com.imethod.core.bean.PageMaker;
+import com.imethod.core.bean.base.BasicEntity;
 import com.imethod.core.log.Logger;
 import com.imethod.core.log.LoggerFactory;
 import com.imethod.core.util.BeanTools;
@@ -94,7 +95,7 @@ public abstract class IJdbcTempBaseSupport {
      * @throws IllegalAccessException
      * @throws InstantiationException
      */
-    public <T> T insert(T object) {
+    public <T extends BasicEntity> T insert(T object) {
         try {
             insertWarp(object);
             return insert(object, null);
@@ -105,9 +106,9 @@ public abstract class IJdbcTempBaseSupport {
         return null;
     }
 
-    protected abstract <T> void insertWarp(T object);
+    protected abstract <T extends BasicEntity> void insertWarp(T object);
 
-    protected abstract <T> void updateWarp(T object);
+    protected abstract <T extends BasicEntity> void updateWarp(T object);
 
     /**
      * 插入实体 指定表名
@@ -241,7 +242,7 @@ public abstract class IJdbcTempBaseSupport {
      * @param <T>
      * @throws IllegalAccessException
      */
-    public <T> void update(
+    public <T extends BasicEntity> void update(
             T object) throws IllegalAccessException, InvocationTargetException {
         updateWarp(object);
         update(object, null, null);
